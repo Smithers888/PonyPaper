@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="ab_stand_l">
+        <item>35</item>
+        <item>5</item>
+        <item>10</item>
+        <item>5</item>
+        <item>5</item>
+        <item>10</item>
+        <item>115</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>60</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+    </integer-array>
+    <integer-array name="ab_stand_r">
+        <item>35</item>
+        <item>5</item>
+        <item>10</item>
+        <item>5</item>
+        <item>5</item>
+        <item>10</item>
+        <item>115</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>60</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+    </integer-array>
+    <array name="ab_stand">
+        <item>@drawable/ab_stand_l</item>
+        <item>@array/ab_stand_l</item>
+        <item>@drawable/ab_stand_r</item>
+        <item>@array/ab_stand_r</item>
+    </array>
+</resources>

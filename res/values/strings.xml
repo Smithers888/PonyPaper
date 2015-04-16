@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pony Paper</string>
+    <string name="description">Cartoon ponies wander across your screen.</string>
+    <string name="app_settings_name">Pony Paper settings</string>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="ts_drag_l">
+        <item>400</item>
+        <item>10</item>
+    </integer-array>
+    <integer-array name="ts_drag_r">
+        <item>400</item>
+        <item>10</item>
+    </integer-array>
+    <array name="ts_drag">
+        <item>@drawable/ts_drag_l</item>
+        <item>@array/ts_drag_l</item>
+        <item>@drawable/ts_drag_r</item>
+        <item>@array/ts_drag_r</item>
+    </array>
+</resources>

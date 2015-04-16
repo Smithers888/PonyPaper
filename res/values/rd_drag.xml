@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="rd_drag_l">
+        <item>20</item>
+        <item>10</item>
+        <item>5</item>
+        <item>5</item>
+        <item>20</item>
+        <item>10</item>
+        <item>20</item>
+        <item>10</item>
+        <item>40</item>
+        <item>10</item>
+        <item>20</item>
+        <item>10</item>
+        <item>20</item>
+        <item>10</item>
+        <item>5</item>
+        <item>5</item>
+        <item>10</item>
+        <item>30</item>
+        <item>10</item>
+        <item>5</item>
+        <item>5</item>
+        <item>160</item>
+        <item>10</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>20</item>
+    </integer-array>
+    <integer-array name="rd_drag_r">
+        <item>20</item>
+        <item>10</item>
+        <item>5</item>
+        <item>5</item>
+        <item>20</item>
+        <item>10</item>
+        <item>20</item>
+        <item>10</item>
+        <item>40</item>
+        <item>10</item>
+        <item>20</item>
+        <item>10</item>
+        <item>20</item>
+        <item>10</item>
+        <item>5</item>
+        <item>5</item>
+        <item>10</item>
+        <item>30</item>
+        <item>10</item>
+        <item>5</item>
+        <item>5</item>
+        <item>160</item>
+        <item>10</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>20</item>
+    </integer-array>
+    <array name="rd_drag">
+        <item>@drawable/rd_drag_l</item>
+        <item>@array/rd_drag_l</item>
+        <item>@drawable/rd_drag_r</item>
+        <item>@array/rd_drag_r</item>
+    </array>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="fs_drag_l">
+        <item>100</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+    </integer-array>
+    <integer-array name="fs_drag_r">
+        <item>100</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+    </integer-array>
+    <array name="fs_drag">
+        <item>@drawable/fs_drag_l</item>
+        <item>@array/fs_drag_l</item>
+        <item>@drawable/fs_drag_r</item>
+        <item>@array/fs_drag_r</item>
+    </array>
+</resources>

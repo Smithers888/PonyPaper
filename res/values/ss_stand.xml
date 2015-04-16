@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="ss_stand_l">
+        <item>50</item>
+        <item>5</item>
+        <item>5</item>
+        <item>10</item>
+        <item>5</item>
+        <item>50</item>
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>10</item>
+        <item>300</item>
+        <item>5</item>
+        <item>5</item>
+        <item>10</item>
+        <item>5</item>
+        <item>200</item>
+    </integer-array>
+    <integer-array name="ss_stand_r">
+        <item>50</item>
+        <item>5</item>
+        <item>5</item>
+        <item>10</item>
+        <item>5</item>
+        <item>50</item>
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>10</item>
+        <item>300</item>
+        <item>5</item>
+        <item>5</item>
+        <item>10</item>
+        <item>5</item>
+        <item>200</item>
+    </integer-array>
+    <array name="ss_stand">
+        <item>@drawable/ss_stand_l</item>
+        <item>@array/ss_stand_l</item>
+        <item>@drawable/ss_stand_r</item>
+        <item>@array/ss_stand_r</item>
+    </array>
+</resources>

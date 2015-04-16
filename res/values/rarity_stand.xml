@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="rarity_stand_l">
+        <item>100</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>510</item>
+        <item>4</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>500</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>200</item>
+    </integer-array>
+    <integer-array name="rarity_stand_r">
+        <item>100</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>510</item>
+        <item>4</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>500</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>200</item>
+    </integer-array>
+    <array name="rarity_stand">
+        <item>@drawable/rarity_stand_l</item>
+        <item>@array/rarity_stand_l</item>
+        <item>@drawable/rarity_stand_r</item>
+        <item>@array/rarity_stand_r</item>
+    </array>
+</resources>

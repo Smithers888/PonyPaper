@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="pts_stand_l">
+        <item>100</item>
+        <item>5</item>
+        <item>5</item>
+        <item>10</item>
+        <item>5</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>500</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>500</item>
+        <item>5</item>
+        <item>5</item>
+        <item>10</item>
+        <item>5</item>
+        <item>5</item>
+        <item>200</item>
+    </integer-array>
+    <integer-array name="pts_stand_r">
+        <item>100</item>
+        <item>5</item>
+        <item>5</item>
+        <item>10</item>
+        <item>5</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>500</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>500</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>200</item>
+    </integer-array>
+    <array name="pts_stand">
+        <item>@drawable/pts_stand_l</item>
+        <item>@array/pts_stand_l</item>
+        <item>@drawable/pts_stand_r</item>
+        <item>@array/pts_stand_r</item>
+    </array>
+</resources>

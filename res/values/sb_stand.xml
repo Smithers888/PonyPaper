@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="sb_stand_l">
+        <item>4</item>
+    </integer-array>
+    <integer-array name="sb_stand_r">
+        <item>4</item>
+    </integer-array>
+    <array name="sb_stand">
+        <item>@drawable/sb_stand_l</item>
+        <item>@array/sb_stand_l</item>
+        <item>@drawable/sb_stand_r</item>
+        <item>@array/sb_stand_r</item>
+    </array>
+</resources>

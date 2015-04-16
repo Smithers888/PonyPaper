@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="spike_walk_l">
+        <item>8</item>
+        <item>8</item>
+        <item>8</item>
+        <item>8</item>
+        <item>8</item>
+        <item>8</item>
+        <item>8</item>
+        <item>8</item>
+        <item>8</item>
+        <item>8</item>
+        <item>8</item>
+        <item>8</item>
+    </integer-array>
+    <integer-array name="spike_walk_r">
+        <item>8</item>
+        <item>8</item>
+        <item>8</item>
+        <item>8</item>
+        <item>8</item>
+        <item>8</item>
+        <item>8</item>
+        <item>8</item>
+        <item>8</item>
+        <item>8</item>
+        <item>8</item>
+        <item>8</item>
+    </integer-array>
+    <array name="spike_walk">
+        <item>@drawable/spike_walk_l</item>
+        <item>@array/spike_walk_l</item>
+        <item>@drawable/spike_walk_r</item>
+        <item>@array/spike_walk_r</item>
+    </array>
+</resources>

@@ -1,0 +1,6 @@
+# Built
+bin/
+gen/
+
+# Machine-specific
+local.properties

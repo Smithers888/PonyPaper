@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="ss_teleportin_l">
+        <item>10</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>7</item>
+        <item>5</item>
+        <item>5</item>
+        <item>200</item>
+    </integer-array>
+    <integer-array name="ss_teleportin_r">
+        <item>10</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>7</item>
+        <item>5</item>
+        <item>5</item>
+        <item>200</item>
+    </integer-array>
+    <array name="ss_teleportin">
+        <item>@drawable/ss_teleportin_l</item>
+        <item>@array/ss_teleportin_l</item>
+        <item>@drawable/ss_teleportin_r</item>
+        <item>@array/ss_teleportin_r</item>
+    </array>
+</resources>
