@@ -19,7 +19,7 @@
                             android:defaultValue="true" />
         <CheckBoxPreference android:key="pref_spike"
                             android:title="Spike"
-                            android:defaultValue="false" />
+                            android:defaultValue="true" />
         <CheckBoxPreference android:key="pref_ts"
                             android:title="Twilight Sparkle"
                             android:defaultValue="true" />
@@ -40,10 +40,10 @@
                         android:title="Princesses">
         <CheckBoxPreference android:key="pref_celestia"
                             android:title="Princess Celestia"
-                            android:defaultValue="false" />
+                            android:defaultValue="true" />
         <CheckBoxPreference android:key="pref_luna"
                             android:title="Princess Luna"
-                            android:defaultValue="false" />
+                            android:defaultValue="true" />
     </PreferenceCategory>
     <PreferenceCategory android:key="pref_other"
                         android:title="Other ponies">
