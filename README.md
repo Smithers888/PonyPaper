@@ -1,6 +1,8 @@
 # PonyPaper
 A live wallpaper for Android using pixel-art sprites of characters from My Little Pony: Friendship is Magic.
 
+<img src='screenshots/screen1.png' width='180'> <img src='screenshots/drag.png' width='180'> <img src='screenshots/preferences.png' width='180'> <img src='screenshots/screen2.png' width='180'>
+
 ## Installation
 This wallpaper should be compatible with any device running Android 2.2 (Froyo) or higher.
 
