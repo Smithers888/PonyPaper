@@ -71,7 +71,7 @@ public class PonyWallpaper extends WallpaperService {
             
             Canvas c = null;
             try {
-                if (ponies == null) ponies = new Ponies(getResources(), getPreferences());
+                if (ponies == null) ponies = new Ponies(PonyWallpaper.this, getPreferences());
                 c = holder.lockCanvas();
                 if (c != null) {
                     c.drawColor(0xff3333ee);

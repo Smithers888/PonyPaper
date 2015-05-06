@@ -1,7 +1,7 @@
 package uk.cpjsmith.ponypaper;
 
+import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Point;
 import android.graphics.Rect;
@@ -38,11 +38,11 @@ public class Ponies {
     /**
      * Creates a new {@code Ponies} instance.
      * 
-     * @param res   the resources object to load the pony sprites from
-     * @param prefs the users preferences of which ponies to load
+     * @param context the current application context
+     * @param prefs   the user's preferences of which ponies to load
      */
-    public Ponies(Resources res, SharedPreferences prefs) {
-        inactivePonies = AllPonies.getPonies(res, prefs);
+    public Ponies(Context context, SharedPreferences prefs) {
+        inactivePonies = AllPonies.getPonies(context, prefs);
         
         activeCount = Math.min(inactivePonies.size(), 4);
         

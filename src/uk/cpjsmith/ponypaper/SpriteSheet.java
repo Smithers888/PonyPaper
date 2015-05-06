@@ -39,10 +39,21 @@ public class SpriteSheet {
     public SpriteSheet(Resources res, int drawId, int timesId) {
         bitmap = BitmapFactory.decodeResource(res, drawId, bfOpts);
         frameTimes = res.getIntArray(timesId);
-        totalTime = 0;
-        for (int x : frameTimes) totalTime += x;
-        frameWidth = bitmap.getWidth() / frameTimes.length;
-        frameHeight = bitmap.getHeight();
+        setInternals();
+    }
+    
+    /**
+     * Constructs a new SpriteSheet object from an in-memory image file and an
+     * array of frame times. The frame count is extracted from the length of
+     * the frame time array.
+     * 
+     * @param bitmapData the image file as a byte array
+     * @param frameTimes the integer array containing the frame times
+     */
+    public SpriteSheet(byte[] bitmapData, int[] frameTimes) {
+        this.bitmap = BitmapFactory.decodeByteArray(bitmapData, 0, bitmapData.length);
+        this.frameTimes = frameTimes;
+        setInternals();
     }
     
     /**
@@ -62,6 +73,13 @@ public class SpriteSheet {
             time -= frameTimes[frame];
         }
         throw new IllegalArgumentException("Invalid frame time.");
+    }
+    
+    private void setInternals() {
+        totalTime = 0;
+        for (int x : frameTimes) totalTime += x;
+        frameWidth = bitmap.getWidth() / frameTimes.length;
+        frameHeight = bitmap.getHeight();
     }
     
 }

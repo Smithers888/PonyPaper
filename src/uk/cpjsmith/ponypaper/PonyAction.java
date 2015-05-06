@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.util.Base64;
 import java.util.Random;
 
 /**
@@ -86,6 +87,36 @@ public class PonyAction {
         this.type = type;
         
         array.recycle();
+    }
+    
+    /**
+     * Constructs an action.
+     * 
+     * @param definition the action definition extracted from XML
+     */
+    public PonyAction(PonyDefinition.Action definition) {
+        this.sprites = new SpriteSheet[] {
+            new SpriteSheet(Base64.decode(definition.images.get("left"), 0),
+                            parseInts(definition.timings.get("left"))),
+            new SpriteSheet(Base64.decode(definition.images.get("right"), 0),
+                            parseInts(definition.timings.get("right")))
+        };
+        if (definition.specialType.equals("teleport-out")) {
+            this.type = PORT_O;
+        } else if (definition.specialType.equals("teleport-in")) {
+            this.type = PORT_I;
+        } else {
+            this.type = NORMAL;
+        }
+    }
+    
+    private static int[] parseInts(String value) {
+        String[] array = value.split(",");
+        int[] result = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            result[i] = Integer.parseInt(array[i]);
+        }
+        return result;
     }
     
     public int getAnimationTime(int dir) {

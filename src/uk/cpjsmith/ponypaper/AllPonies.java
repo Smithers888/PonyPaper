@@ -1,8 +1,15 @@
 package uk.cpjsmith.ponypaper;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import java.io.File;
+import java.io.FilenameFilter;
 import java.util.ArrayList;
+import java.util.HashMap;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import org.w3c.dom.Document;
 
 /**
  * Contains the definitions of the available ponies.
@@ -18,12 +25,14 @@ public class AllPonies {
     /**
      * Returns the complete list of ponies.
      * 
-     * @param res   the resources object to load images from
-     * @param prefs the users preferences of which ponies to load
+     * @param context the current application context
+     * @param prefs   the user's preferences of which ponies to load
      * @return ponies, so many ponies
      */
-    public static ArrayList<Pony> getPonies(Resources res, SharedPreferences prefs) {
+    public static ArrayList<Pony> getPonies(Context context, SharedPreferences prefs) {
         ArrayList<Pony> result = new ArrayList<Pony>();
+        
+        Resources res = context.getResources();
         if (prefs.getBoolean("pref_ab", true)) result.add(makeAppleBloom(res));
         if (prefs.getBoolean("pref_aj", true)) result.add(makeApplejack(res));
         if (prefs.getBoolean("pref_bigmac", true)) result.add(makeBigMcIntosh(res));
@@ -41,6 +50,8 @@ public class AllPonies {
         if (prefs.getBoolean("pref_sb", true)) result.add(makeSweetieBelle(res));
         if (prefs.getBoolean("pref_ts", true)) result.add(makeTwilightSparkle(res));
         if (prefs.getBoolean("pref_vinyl", true)) result.add(makeVinylScratch(res));
+        if (prefs.getBoolean("pref_custom", true)) loadCustomPonies(context, result);
+        
         return result;
     }
     
@@ -503,6 +514,63 @@ public class AllPonies {
         moonwalk.setNextDrag(justTrot);
         
         return new Pony(moveStates);
+    }
+    
+    private static PonyAction[] getActions(HashMap<String, PonyAction> actions, String[] actionNames) {
+        PonyAction[] result = new PonyAction[actionNames.length];
+        for (int j = 0; j < actionNames.length; j++) {
+            result[j] = actions.get(actionNames[j]);
+        }
+        return result;
+    }
+    
+    private static void loadCustomPonies(Context context, ArrayList<Pony> ponies) {
+        File dir = context.getExternalFilesDir(null);
+        try {
+            new File(dir, "custom-ponies-go-here").createNewFile();
+        } catch (Exception e) {
+        }
+        
+        File[] files = dir.listFiles(new FilenameFilter() {
+            @Override
+            public boolean accept(File dir, String filename) {
+                return filename.endsWith(".xml");
+            }
+        });
+        
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        for (int i = 0; i < files.length; i++) {
+            try {
+                DocumentBuilder docBuilder = dbf.newDocumentBuilder();
+                Document document = docBuilder.parse(files[i]);
+                PonyDefinition definition = new PonyDefinition(document);
+                definition.validate();
+                ponies.add(makeCustomPony(definition));
+            } catch (Exception e) {
+                android.util.Log.e("PonyPaper", e.toString());
+                continue;
+            }
+        }
+    }
+    
+    private static Pony makeCustomPony(PonyDefinition definition) {
+        HashMap<String, PonyAction> actions = new HashMap<String, PonyAction>();
+        
+        final int actionCount = definition.actions.length;
+        
+        for (int i = 0; i < actionCount; i++) {
+            actions.put(definition.actions[i].name, new PonyAction(definition.actions[i]));
+        }
+        
+        for (int i = 0; i < actionCount; i++) {
+            PonyDefinition.Action actionDef = definition.actions[i];
+            PonyAction action = actions.get(actionDef.name);
+            action.setNextWaiting(getActions(actions, actionDef.nextActions.get("waiting").split(",")));
+            action.setNextMoving(getActions(actions, actionDef.nextActions.get("moving").split(",")));
+            action.setNextDrag(getActions(actions, actionDef.nextActions.get("drag").split(",")));
+        }
+        
+        return new Pony(getActions(actions, definition.startActions.split(",")));
     }
     
 }
