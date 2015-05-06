@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project default="jar">
+    <target name="compile">
+        <mkdir dir="bin" />
+        <javac srcdir="../src"
+               destdir="bin"
+               includes="uk/cpjsmith/ponypaper/PonyDefinition.java"
+               debug="true"
+               debuglevel="lines,source"
+               includeantruntime="false" />
+        <javac srcdir="src"
+               destdir="bin"
+               debug="true"
+               debuglevel="lines,source"
+               includeantruntime="false" />
+    </target>
+    
+    <target name="jar"
+            depends="compile">
+        <jar destfile="customponies.jar"
+             basedir="bin">
+            <manifest>
+                <attribute name="Main-Class"
+                           value="uk.cpjsmith.ponypaper.PonyEditor" />
+            </manifest>
+        </jar>
+        <chmod file="customponies.jar"
+               perm="+x" />
+    </target>
+    
+    <target name="clean">
+        <delete dir="bin" />
+        <delete file="customponies.jar" />
+    </target>
+</project>

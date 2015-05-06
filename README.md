@@ -13,6 +13,9 @@ This wallpaper should be compatible with any device running Android 2.2 (Froyo) 
 5. Choose "Set wallpaper".
 6. Watch colourful ponies trot, fly and teleport across your screen.
 
+## Custom ponies
+See [custom/README.md](custom/README.md)
+
 ## Licensing/Credits
 All artwork was created by contributors to the Desktop Ponies team (who have a [DeviantArt group here](http://desktop-pony-team.deviantart.com/) and a [source repository here](https://github.com/RoosterDragon/Desktop-Ponies)). It is licensed under [Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported (CC BY-NC-SA 3.0)](http://creativecommons.org/licenses/by-nc-sa/3.0/).
 

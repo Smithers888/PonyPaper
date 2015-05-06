@@ -1,6 +1,8 @@
 # Built
 bin/
 gen/
+*.class
+*.jar
 
 # Machine-specific
 local.properties
