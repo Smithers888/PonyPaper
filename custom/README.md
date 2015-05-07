@@ -10,9 +10,9 @@ Once a pony has been created by the editor, it can be loaded into the wallpaper 
 For each action that your pony can perform, the app requires a sprite each for the left- and right-facing directions. The editor can import sprites in two formats.
 
 1. You can import a GIF animation designed for use in Desktop Ponies. The editor will convert such files into the second format so that the app can use them.
-2. This is the format that the wallpaper app requires. Each spritesheet is a single PNG image, containing all of the frames of the animation, layed out left to right. See [the built-in spritesheets](res/drawable) for examples. This is used together with a list of numbers specifying how long each frame lasts, in hundredths of a second. (The length of this array is also used to determine the number of frames).
+2. This is the format that the wallpaper app requires. Each spritesheet is a single PNG image, containing all of the frames of the animation, layed out left to right. See [the built-in spritesheets](/res/drawable) for examples. This is used together with a list of numbers specifying how long each frame lasts, in hundredths of a second. (The length of this array is also used to determine the number of frames).
 
-The file [twilight-sparkle.xml](custom/twilight-sparkle.xml) contains a copy of the built-in Twilight Sparkle. Twilight can be either a unicorn or an alicorn and can both fly and teleport, so she has examples of many possible details in creating ponies.
+The file [twilight-sparkle.xml](/custom/twilight-sparkle.xml) contains a copy of the built-in Twilight Sparkle. Twilight can be either a unicorn or an alicorn and can both fly and teleport, so she has examples of many possible details in creating ponies.
 
 ## The Editor
 The editor requires Java 8. It can be started by lauching `customponies.jar`, either from the file manager or from the command line with `java -jar customponies.jar`.
