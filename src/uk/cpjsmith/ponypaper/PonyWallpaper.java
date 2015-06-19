@@ -1,18 +1,25 @@
 package uk.cpjsmith.ponypaper;
 
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Rect;
+import android.graphics.RectF;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.service.wallpaper.WallpaperService;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
+import java.io.File;
 
 public class PonyWallpaper extends WallpaperService {
     
     private class PonyEngine extends Engine implements SharedPreferences.OnSharedPreferenceChangeListener {
         
         private Ponies ponies = null;
+        private Bitmap background = null;
+        private float xOffset = 0.5f;
         
         private boolean isVisible = false;
         private final Runnable drawFrameCallback = new Runnable() {
@@ -48,6 +55,11 @@ public class PonyWallpaper extends WallpaperService {
         }
         
         @Override
+        public void onOffsetsChanged(float xOffset, float yOffset, float xOffsetStep, float yOffsetStep, int xPixelOffset, int yPixelOffset) {
+            this.xOffset = xOffset;
+        }
+        
+        @Override
         public void onSurfaceChanged(SurfaceHolder holder, int format, int width, int height) {
             super.onSurfaceChanged(holder, format, width, height);
             if (ponies != null) ponies.reset();
@@ -71,10 +83,45 @@ public class PonyWallpaper extends WallpaperService {
             
             Canvas c = null;
             try {
-                if (ponies == null) ponies = new Ponies(PonyWallpaper.this, getPreferences());
+                if (ponies == null) {
+                    SharedPreferences prefs = getPreferences();
+                    ponies = new Ponies(PonyWallpaper.this, prefs);
+                    
+                    background = null;
+                    if (prefs.getBoolean("pref_background", false)) {
+                        File bgFile = new File(getExternalFilesDir(null), "background");
+                        if (bgFile.exists()) {
+                            BitmapFactory.Options bfo = new BitmapFactory.Options();
+                            bfo.inScaled = false;
+                            bfo.inJustDecodeBounds = true;
+                            BitmapFactory.decodeFile(bgFile.toString(), bfo);
+                            int h = bfo.outHeight, w = bfo.outWidth;
+                            int scale = 1;
+                            while (h * w >= 65536)
+                            {
+                                h /= 2;
+                                w /= 2;
+                                scale *= 2;
+                            }
+                            bfo.inJustDecodeBounds = false;
+                            bfo.inSampleSize = scale;
+                            background = BitmapFactory.decodeFile(bgFile.toString(), bfo);
+                        }
+                    }
+                }
                 c = holder.lockCanvas();
                 if (c != null) {
                     c.drawColor(0xff3333ee);
+                    if (background != null) {
+                        Rect srcRect = new Rect(0, 0, background.getWidth(), background.getHeight());
+                        Rect cb = c.getClipBounds();
+                        float scale = (float)cb.height() / (float)srcRect.height();
+                        RectF dstRect = new RectF((cb.width() - srcRect.width() * scale) * xOffset,
+                                                  (cb.height() - srcRect.height() * scale) * 0.5f,
+                                                  (cb.width() - srcRect.width() * scale) * xOffset + srcRect.width() * scale,
+                                                  (cb.height() - srcRect.height() * scale) * 0.5f + srcRect.height() * scale);
+                        c.drawBitmap(background, srcRect, dstRect, null);
+                    }
                     ponies.drawAndUpdate(c);
                 }
             } finally {

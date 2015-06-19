@@ -63,10 +63,16 @@
                             android:title="Vinyl Scratch"
                             android:defaultValue="true" />
     </PreferenceCategory>
-    <PreferenceCategory android:key="pref_custom_category"
-                        android:title="Custom ponies">
+    <PreferenceCategory android:key="pref_misc"
+                        android:title="Other options">
         <CheckBoxPreference android:key="pref_custom"
                             android:title="Custom ponies"
                             android:defaultValue="true" />
+        <CheckBoxPreference android:key="pref_background"
+                            android:title="Use background"
+                            android:defaultValue="false" />
+        <Preference android:key="pref_select_background"
+                    android:title="Select background"
+                    android:dependency="pref_background" />
     </PreferenceCategory>
 </PreferenceScreen>
