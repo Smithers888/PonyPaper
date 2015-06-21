@@ -37,8 +37,10 @@ public class AllPonies {
         if (prefs.getBoolean("pref_aj", true)) result.add(makeApplejack(res));
         if (prefs.getBoolean("pref_bigmac", true)) result.add(makeBigMcIntosh(res));
         if (prefs.getBoolean("pref_derpy", true)) result.add(makeDerpyHooves(res));
+        if (prefs.getBoolean("pref_doctor", true)) result.add(makeDoctorHooves(res));
         if (prefs.getBoolean("pref_fs", true)) result.add(makeFluttershy(res));
         if (prefs.getBoolean("pref_lyra", true)) result.add(makeLyraHeartstrings(res));
+        if (prefs.getBoolean("pref_octavia", true)) result.add(makeOctavia(res));
         if (prefs.getBoolean("pref_pp", true)) result.add(makePinkiePie(res));
         if (prefs.getBoolean("pref_celestia", true)) result.add(makePrincessCelestia(res));
         if (prefs.getBoolean("pref_luna", true)) result.add(makePrincessLuna(res));
@@ -48,6 +50,7 @@ public class AllPonies {
         if (prefs.getBoolean("pref_spike", true)) result.add(makeSpike(res));
         if (prefs.getBoolean("pref_ss", true)) result.add(makeSunsetShimmer(res));
         if (prefs.getBoolean("pref_sb", true)) result.add(makeSweetieBelle(res));
+        if (prefs.getBoolean("pref_sd", true)) result.add(makeSweetieDrops(res));
         if (prefs.getBoolean("pref_ts", true)) result.add(makeTwilightSparkle(res));
         if (prefs.getBoolean("pref_vinyl", true)) result.add(makeVinylScratch(res));
         if (prefs.getBoolean("pref_custom", true)) loadCustomPonies(context, result);
@@ -55,9 +58,9 @@ public class AllPonies {
         return result;
     }
     
-    private static Pony makeAppleBloom(Resources res) {
-        PonyAction stand = new PonyAction(res, R.array.ab_stand);
-        PonyAction trot = new PonyAction(res, R.array.ab_trot);
+    private static Pony makeDefaultPony(Resources res, int standId, int trotId) {
+        PonyAction stand = new PonyAction(res, standId);
+        PonyAction trot = new PonyAction(res, trotId);
         
         PonyAction[] justStand = {stand};
         PonyAction[] justTrot = {trot};
@@ -72,6 +75,10 @@ public class AllPonies {
         trot.setNextDrag(justTrot);
         
         return new Pony(justTrot);
+    }
+    
+    private static Pony makeAppleBloom(Resources res) {
+        return makeDefaultPony(res, R.array.ab_stand, R.array.ab_trot);
     }
     
     private static Pony makeApplejack(Resources res) {
@@ -99,22 +106,7 @@ public class AllPonies {
     }
     
     private static Pony makeBigMcIntosh(Resources res) {
-        PonyAction stand = new PonyAction(res, R.array.bigmac_stand);
-        PonyAction trot = new PonyAction(res, R.array.bigmac_trot);
-        
-        PonyAction[] justStand = {stand};
-        PonyAction[] justTrot = {trot};
-        
-        stand.setNextWaiting(justStand);
-        trot.setNextWaiting(justStand);
-        
-        stand.setNextMoving(justTrot);
-        trot.setNextMoving(justTrot);
-        
-        stand.setNextDrag(justTrot);
-        trot.setNextDrag(justTrot);
-        
-        return new Pony(justTrot);
+        return makeDefaultPony(res, R.array.bigmac_stand, R.array.bigmac_trot);
     }
     
     private static Pony makeDerpyHooves(Resources res) {
@@ -160,6 +152,10 @@ public class AllPonies {
         drag.setNextDrag(justDrag);
         
         return new Pony(moveStates);
+    }
+    
+    private static Pony makeDoctorHooves(Resources res) {
+        return makeDefaultPony(res, R.array.doctor_stand, R.array.doctor_trot);
     }
     
     private static Pony makeFluttershy(Resources res) {
@@ -213,6 +209,10 @@ public class AllPonies {
         trot.setNextDrag(justTrot);
         
         return new Pony(justTrot);
+    }
+    
+    private static Pony makeOctavia(Resources res) {
+        return makeDefaultPony(res, R.array.octavia_stand, R.array.octavia_trot);
     }
     
     private static Pony makePinkiePie(Resources res) {
@@ -348,41 +348,11 @@ public class AllPonies {
     }
     
     private static Pony makeScootaloo(Resources res) {
-        PonyAction stand = new PonyAction(res, R.array.scootaloo_stand);
-        PonyAction trot = new PonyAction(res, R.array.scootaloo_trot);
-        
-        PonyAction[] justStand = {stand};
-        PonyAction[] justTrot = {trot};
-        
-        stand.setNextWaiting(justStand);
-        trot.setNextWaiting(justStand);
-        
-        stand.setNextMoving(justTrot);
-        trot.setNextMoving(justTrot);
-        
-        stand.setNextDrag(justTrot);
-        trot.setNextDrag(justTrot);
-        
-        return new Pony(justTrot);
+        return makeDefaultPony(res, R.array.scootaloo_stand, R.array.scootaloo_trot);
     }
     
     private static Pony makeSpike(Resources res) {
-        PonyAction stand = new PonyAction(res, R.array.spike_stand);
-        PonyAction walk = new PonyAction(res, R.array.spike_walk);
-        
-        PonyAction[] justStand = {stand};
-        PonyAction[] justWalk = {walk};
-        
-        stand.setNextWaiting(justStand);
-        walk.setNextWaiting(justStand);
-        
-        stand.setNextMoving(justWalk);
-        walk.setNextMoving(justWalk);
-        
-        stand.setNextDrag(justWalk);
-        walk.setNextDrag(justWalk);
-        
-        return new Pony(justWalk);
+        return makeDefaultPony(res, R.array.spike_stand, R.array.spike_walk);
     }
     
     private static Pony makeSunsetShimmer(Resources res) {
@@ -414,22 +384,11 @@ public class AllPonies {
     }
     
     private static Pony makeSweetieBelle(Resources res) {
-        PonyAction stand = new PonyAction(res, R.array.sb_stand);
-        PonyAction trot = new PonyAction(res, R.array.sb_trot);
-        
-        PonyAction[] justStand = {stand};
-        PonyAction[] justTrot = {trot};
-        
-        stand.setNextWaiting(justStand);
-        trot.setNextWaiting(justStand);
-        
-        stand.setNextMoving(justTrot);
-        trot.setNextMoving(justTrot);
-        
-        stand.setNextDrag(justTrot);
-        trot.setNextDrag(justTrot);
-        
-        return new Pony(justTrot);
+        return makeDefaultPony(res, R.array.sb_stand, R.array.sb_trot);
+    }
+    
+    private static Pony makeSweetieDrops(Resources res) {
+        return makeDefaultPony(res, R.array.sd_stand, R.array.sd_trot);
     }
     
     private static Pony makeTwilightSparkle(Resources res) {

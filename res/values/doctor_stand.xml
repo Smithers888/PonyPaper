@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="doctor_stand_l">
+        <item>200</item>
+        <item>5</item>
+        <item>5</item>
+        <item>15</item>
+        <item>5</item>
+        <item>5</item>
+        <item>450</item>
+        <item>5</item>
+        <item>5</item>
+        <item>15</item>
+        <item>5</item>
+        <item>5</item>
+    </integer-array>
+    <integer-array name="doctor_stand_r">
+        <item>200</item>
+        <item>5</item>
+        <item>5</item>
+        <item>15</item>
+        <item>5</item>
+        <item>5</item>
+        <item>450</item>
+        <item>5</item>
+        <item>5</item>
+        <item>15</item>
+        <item>5</item>
+        <item>5</item>
+    </integer-array>
+    <array name="doctor_stand">
+        <item>@drawable/doctor_stand_l</item>
+        <item>@array/doctor_stand_l</item>
+        <item>@drawable/doctor_stand_r</item>
+        <item>@array/doctor_stand_r</item>
+    </array>
+</resources>

@@ -53,8 +53,17 @@
         <CheckBoxPreference android:key="pref_derpy"
                             android:title="Derpy"
                             android:defaultValue="true" />
+        <CheckBoxPreference android:key="pref_doctor"
+                            android:title="Dr. Hooves"
+                            android:defaultValue="true" />
         <CheckBoxPreference android:key="pref_lyra"
                             android:title="Lyra Heartstrings"
+                            android:defaultValue="true" />
+        <CheckBoxPreference android:key="pref_octavia"
+                            android:title="Octavia"
+                            android:defaultValue="true" />
+        <CheckBoxPreference android:key="pref_sd"
+                            android:title="Sweetie Drops"
                             android:defaultValue="true" />
         <CheckBoxPreference android:key="pref_ss"
                             android:title="Sunset Shimmer"
