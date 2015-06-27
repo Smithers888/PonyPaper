@@ -62,6 +62,7 @@ public class AllPonies {
         PonyAction stand = new PonyAction(res, standId);
         PonyAction trot = new PonyAction(res, trotId);
         
+        PonyAction[] all = {stand, trot};
         PonyAction[] justStand = {stand};
         PonyAction[] justTrot = {trot};
         
@@ -74,7 +75,7 @@ public class AllPonies {
         stand.setNextDrag(justTrot);
         trot.setNextDrag(justTrot);
         
-        return new Pony(justTrot);
+        return new Pony(all, justTrot);
     }
     
     private static Pony makeAppleBloom(Resources res) {
@@ -86,6 +87,7 @@ public class AllPonies {
         PonyAction trot = new PonyAction(res, R.array.aj_trot);
         PonyAction drag = new PonyAction(res, R.array.aj_drag);
         
+        PonyAction[] all = {stand, trot, drag};
         PonyAction[] justStand = {stand};
         PonyAction[] justTrot = {trot};
         PonyAction[] justDrag = {drag};
@@ -102,7 +104,7 @@ public class AllPonies {
         trot.setNextDrag(justDrag);
         drag.setNextDrag(justDrag);
         
-        return new Pony(justTrot);
+        return new Pony(all, justTrot);
     }
     
     private static Pony makeBigMcIntosh(Resources res) {
@@ -118,6 +120,7 @@ public class AllPonies {
         PonyAction flyud = new PonyAction(res, R.array.derpy_flyud);
         PonyAction drag = new PonyAction(res, R.array.derpy_drag);
         
+        PonyAction[] all = {stand, trot, hover, hoverud, fly, flyud, drag};
         PonyAction[] justStand = {stand};
         PonyAction[] justFly = {fly};
         PonyAction[] justFlyud = {flyud};
@@ -151,7 +154,7 @@ public class AllPonies {
         flyud.setNextDrag(justDrag);
         drag.setNextDrag(justDrag);
         
-        return new Pony(moveStates);
+        return new Pony(all, moveStates);
     }
     
     private static Pony makeDoctorHooves(Resources res) {
@@ -164,6 +167,7 @@ public class AllPonies {
         PonyAction fly = new PonyAction(res, R.array.fs_fly);
         PonyAction drag = new PonyAction(res, R.array.fs_drag);
         
+        PonyAction[] all = {stand, trot, fly, drag};
         PonyAction[] justStand = {stand};
         PonyAction[] justFly = {fly};
         PonyAction[] justDrag = {drag};
@@ -185,7 +189,7 @@ public class AllPonies {
         fly.setNextDrag(justDrag);
         drag.setNextDrag(justDrag);
         
-        return new Pony(moveStates);
+        return new Pony(all, moveStates);
     }
     
     private static Pony makeLyraHeartstrings(Resources res) {
@@ -193,6 +197,7 @@ public class AllPonies {
         PonyAction stand = new PonyAction(res, R.array.lyra_stand);
         PonyAction trot = new PonyAction(res, R.array.lyra_trot);
         
+        PonyAction[] all = {sit, stand, trot};
         PonyAction[] justTrot = {trot};
         PonyAction[] waitStates = {stand, stand, stand, sit};
         
@@ -208,7 +213,7 @@ public class AllPonies {
         stand.setNextDrag(justTrot);
         trot.setNextDrag(justTrot);
         
-        return new Pony(justTrot);
+        return new Pony(all, justTrot);
     }
     
     private static Pony makeOctavia(Resources res) {
@@ -221,6 +226,7 @@ public class AllPonies {
         PonyAction bounce = new PonyAction(res, R.array.pp_bounce);
         PonyAction drag = new PonyAction(res, R.array.pp_drag);
         
+        PonyAction[] all = {stand, trot, bounce, drag};
         PonyAction[] justStand = {stand};
         PonyAction[] justDrag = {drag};
         PonyAction[] moveStates = {trot, bounce};
@@ -240,7 +246,7 @@ public class AllPonies {
         bounce.setNextDrag(justDrag);
         drag.setNextDrag(justDrag);
         
-        return new Pony(moveStates);
+        return new Pony(all, moveStates);
     }
     
     private static Pony makePrincessCelestia(Resources res) {
@@ -248,6 +254,7 @@ public class AllPonies {
         PonyAction walk = new PonyAction(res, R.array.celestia_walk);
         PonyAction fly = new PonyAction(res, R.array.celestia_fly);
         
+        PonyAction[] all = {stand, walk, fly};
         PonyAction[] justStand = {stand};
         PonyAction[] justFly = {fly};
         PonyAction[] waitStates = {stand, fly};
@@ -265,7 +272,7 @@ public class AllPonies {
         walk.setNextDrag(justFly);
         fly.setNextDrag(justFly);
         
-        return new Pony(moveStates);
+        return new Pony(all, moveStates);
     }
     
     private static Pony makePrincessLuna(Resources res) {
@@ -273,6 +280,7 @@ public class AllPonies {
         PonyAction walk = new PonyAction(res, R.array.luna_walk);
         PonyAction fly = new PonyAction(res, R.array.luna_fly);
         
+        PonyAction[] all = {stand, walk, fly};
         PonyAction[] justStand = {stand};
         PonyAction[] justFly = {fly};
         PonyAction[] waitStates = {stand, fly};
@@ -290,7 +298,7 @@ public class AllPonies {
         walk.setNextDrag(justFly);
         fly.setNextDrag(justFly);
         
-        return new Pony(moveStates);
+        return new Pony(all, moveStates);
     }
     
     private static Pony makeRainbowDash(Resources res) {
@@ -299,6 +307,7 @@ public class AllPonies {
         PonyAction fly = new PonyAction(res, R.array.rd_fly);
         PonyAction drag = new PonyAction(res, R.array.rd_drag);
         
+        PonyAction[] all = {stand, trot, fly, drag};
         PonyAction[] justStand = {stand};
         PonyAction[] justFly = {fly};
         PonyAction[] justDrag = {drag};
@@ -320,7 +329,7 @@ public class AllPonies {
         fly.setNextDrag(justDrag);
         drag.setNextDrag(justDrag);
         
-        return new Pony(moveStates);
+        return new Pony(all, moveStates);
     }
     
     private static Pony makeRarity(Resources res) {
@@ -328,6 +337,7 @@ public class AllPonies {
         PonyAction trot = new PonyAction(res, R.array.rarity_trot);
         PonyAction drag = new PonyAction(res, R.array.rarity_drag);
         
+        PonyAction[] all = {stand, trot, drag};
         PonyAction[] justStand = {stand};
         PonyAction[] justTrot = {trot};
         PonyAction[] justDrag = {drag};
@@ -344,7 +354,7 @@ public class AllPonies {
         trot.setNextDrag(justDrag);
         drag.setNextDrag(justDrag);
         
-        return new Pony(justTrot);
+        return new Pony(all, justTrot);
     }
     
     private static Pony makeScootaloo(Resources res) {
@@ -361,6 +371,7 @@ public class AllPonies {
         PonyAction teleportOut = new PonyAction(res, R.array.ss_teleportout, PonyAction.PORT_O);
         PonyAction teleportIn = new PonyAction(res, R.array.ss_teleportin, PonyAction.PORT_I);
         
+        PonyAction[] all = {stand, trot, teleportOut, teleportIn};
         PonyAction[] justStand = {stand};
         PonyAction[] justTrot = {trot};
         PonyAction[] moveStates = {trot, trot, trot, teleportOut};
@@ -380,7 +391,7 @@ public class AllPonies {
         teleportOut.setNextDrag(justTrot);
         teleportIn.setNextDrag(justTrot);
         
-        return new Pony(moveStates);
+        return new Pony(all, moveStates);
     }
     
     private static Pony makeSweetieBelle(Resources res) {
@@ -444,7 +455,8 @@ public class AllPonies {
         teleportInU.setNextDrag(justDragU);
         dragU.setNextDrag(justDragU);
         
-        return new Pony(new PonyAction[] {trotA, trotA, flyA, teleportOutA, trotU, trotU, trotU, teleportOutU});
+        return new Pony(new PonyAction[] {standA, trotA, flyA, teleportOutA, teleportInA, standU, trotU, teleportOutU, teleportInU, dragU},
+                        new PonyAction[] {trotA, trotA, flyA, teleportOutA, trotU, trotU, trotU, teleportOutU});
     }
     
     private static Pony makeVinylScratch(Resources res) {
@@ -453,6 +465,7 @@ public class AllPonies {
         PonyAction dance = new PonyAction(res, R.array.vinyl_dance);
         PonyAction moonwalk = new PonyAction(res, R.array.vinyl_moonwalk);
         
+        PonyAction[] all = {stand, trot, dance, moonwalk};
         PonyAction[] justTrot = {trot};
         PonyAction[] waitStates = {stand, dance};
         PonyAction[] moveStates = {trot, trot, trot, moonwalk};
@@ -472,7 +485,7 @@ public class AllPonies {
         dance.setNextDrag(justTrot);
         moonwalk.setNextDrag(justTrot);
         
-        return new Pony(moveStates);
+        return new Pony(all, moveStates);
     }
     
     private static PonyAction[] getActions(HashMap<String, PonyAction> actions, String[] actionNames) {
@@ -529,7 +542,8 @@ public class AllPonies {
             action.setNextDrag(getActions(actions, actionDef.nextActions.get("drag").split(",")));
         }
         
-        return new Pony(getActions(actions, definition.startActions.split(",")));
+        return new Pony(actions.values().toArray(new PonyAction[actions.size()]),
+                        getActions(actions, definition.startActions.split(",")));
     }
     
 }

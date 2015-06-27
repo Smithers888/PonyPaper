@@ -22,6 +22,7 @@ public class Pony {
     private static final int LM_GOING = 1;
     private static final int LM_GONE = 2;
     
+    private final PonyAction[] allActions;
     private final PonyAction[] startActions;
     
     private Random random;
@@ -41,9 +42,11 @@ public class Pony {
     /**
      * Creates a new {@code Pony} object.
      * 
+     * @param allActions   all of the actions that this pony is comprised of
      * @param startActions the actions that the pony can enter the screen with
      */
-    public Pony(PonyAction[] startActions) {
+    public Pony(PonyAction[] allActions, PonyAction[] startActions) {
+        this.allActions = allActions;
         this.startActions = startActions;
         this.random = new Random();
         this.direction = random.nextBoolean() ? PonyAction.LEFT : PonyAction.RIGHT;
@@ -59,6 +62,9 @@ public class Pony {
         currentAction = null;
         currentPos = null;
         frameTime = 0;
+        for (int i = 0; i < allActions.length; i++) {
+            allActions[i].unload();
+        }
     }
     
     /**
@@ -73,6 +79,9 @@ public class Pony {
         float scale = getScale();
         
         if (motion == MOTION_INIT) {
+            for (int i = 0; i < allActions.length; i++) {
+                allActions[i].load();
+            }
             currentPos = randomOffScreen();
             targetPos = randomOnScreen();
             changeAction(startActions[random.nextInt(startActions.length)]);

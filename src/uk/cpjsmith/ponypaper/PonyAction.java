@@ -12,7 +12,10 @@ import java.util.Random;
 /**
  * Encapsulates a particular action for a pony. Ultimately, this unites the
  * {@code SpriteSheet} for the left- and right-facing modes of the action, as
- * well as information on possible next states.
+ * well as information on possible next states. On construction, the sprites
+ * are not immediately loaded and the {@link getAnimationTime()} and {@link
+ * drawOn()} methods will fail with {@code NullPointerException} until the
+ * {@link load()} method is called.
  */
 public class PonyAction {
     
@@ -32,7 +35,7 @@ public class PonyAction {
     /**
      * Type constant for actions which follow the teleport-in rules. I.e. when
      * used for moving, the pony remains stationary for one loop of the
-     * action's animation, then changes to the next stationary action.
+     * action's animation, then changes to the next waiting action.
      */
     public static final int PORT_I = 2;
     
@@ -44,7 +47,13 @@ public class PonyAction {
     /** The type of action; {@code NORMAL}, {@code PORT_O} or {@code PORT_I} */
     public final int type;
     
-    private final SpriteSheet[] sprites;
+    /* To create the sprite sheets for a built-in pony. */
+    private Resources res;
+    private int arrayId;
+    /* To create the sprite sheets for a custom pony. */
+    private PonyDefinition.Action definition;
+    
+    private SpriteSheet[] sprites;
     
     private PonyAction[] nextWaiting;
     private PonyAction[] nextMoving;
@@ -63,7 +72,7 @@ public class PonyAction {
     
     /**
      * Constructs an action of the given type. The {@code arrayId} parameter
-     * should be the ID of an array resouce containing 4 other resources - the
+     * should be the ID of an array resource containing 4 other resources - the
      * drawable for leftwards motion, the array of frame times for leftwards
      * motion, the drawable for rightwards motion and the array of frame times
      * for rightwards motion, respectively.
@@ -73,20 +82,9 @@ public class PonyAction {
      * @param type    the type of action
      */
     public PonyAction(Resources res, int arrayId, int type) {
-        android.content.res.TypedArray array = res.obtainTypedArray(arrayId);
-        
-        int leftDrawableId = array.getResourceId(0, -1);
-        int leftTimingId = array.getResourceId(1, -1);
-        int rightDrawableId = array.getResourceId(2, -1);
-        int rightTimingId = array.getResourceId(3, -1);
-        
-        this.sprites = new SpriteSheet[] {
-            new SpriteSheet(res, leftDrawableId, leftTimingId),
-            new SpriteSheet(res, rightDrawableId, rightTimingId)
-        };
+        this.res = res;
+        this.arrayId = arrayId;
         this.type = type;
-        
-        array.recycle();
     }
     
     /**
@@ -95,12 +93,7 @@ public class PonyAction {
      * @param definition the action definition extracted from XML
      */
     public PonyAction(PonyDefinition.Action definition) {
-        this.sprites = new SpriteSheet[] {
-            new SpriteSheet(Base64.decode(definition.images.get("left"), 0),
-                            parseInts(definition.timings.get("left"))),
-            new SpriteSheet(Base64.decode(definition.images.get("right"), 0),
-                            parseInts(definition.timings.get("right")))
-        };
+        this.definition = definition;
         if (definition.specialType.equals("teleport-out")) {
             this.type = PORT_O;
         } else if (definition.specialType.equals("teleport-in")) {
@@ -108,6 +101,9 @@ public class PonyAction {
         } else {
             this.type = NORMAL;
         }
+        // Test the images.
+        load();
+        unload();
     }
     
     private static int[] parseInts(String value) {
@@ -117,6 +113,47 @@ public class PonyAction {
             result[i] = Integer.parseInt(array[i]);
         }
         return result;
+    }
+    
+    /**
+     * Load the sprites into memory. After this is called, all the methods of
+     * this class become functional. It will also consume far more memory.
+     * 
+     * @see unload()
+     */
+    public void load() {
+        if (res != null) {
+            android.content.res.TypedArray array = res.obtainTypedArray(arrayId);
+            
+            int leftDrawableId = array.getResourceId(0, 0);
+            int leftTimingId = array.getResourceId(1, 0);
+            int rightDrawableId = array.getResourceId(2, 0);
+            int rightTimingId = array.getResourceId(3, 0);
+            
+            sprites = new SpriteSheet[] {
+                new SpriteSheet(res, leftDrawableId, leftTimingId),
+                new SpriteSheet(res, rightDrawableId, rightTimingId)
+            };
+            
+            array.recycle();
+        } else if (definition != null) {
+            sprites = new SpriteSheet[] {
+                new SpriteSheet(Base64.decode(definition.images.get("left"), 0),
+                                parseInts(definition.timings.get("left"))),
+                new SpriteSheet(Base64.decode(definition.images.get("right"), 0),
+                                parseInts(definition.timings.get("right")))
+            };
+        }
+    }
+    
+    /**
+     * Unload the sprites from memory. This will release the memory consumed by
+     * the images, but some methods of this class will cease to function.
+     * 
+     * @see load()
+     */
+    public void unload() {
+        sprites = null;
     }
     
     public int getAnimationTime(int dir) {
