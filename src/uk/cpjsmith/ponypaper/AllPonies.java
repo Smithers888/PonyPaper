@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import java.io.File;
 import java.io.FilenameFilter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.xml.parsers.DocumentBuilder;
@@ -498,9 +499,11 @@ public class AllPonies {
     
     private static void loadCustomPonies(Context context, ArrayList<Pony> ponies) {
         File dir = context.getExternalFilesDir(null);
+        if (dir == null) return; // External storage is unavailable, so we can't load any custom ponies.
+        
         try {
             new File(dir, "custom-ponies-go-here").createNewFile();
-        } catch (Exception e) {
+        } catch (IOException e) {
         }
         
         File[] files = dir.listFiles(new FilenameFilter() {
