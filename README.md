@@ -1,12 +1,14 @@
 # PonyPaper
 A live wallpaper for Android using pixel-art sprites of characters from My Little Pony: Friendship is Magic.
 
+Basically, it's a bit like [Desktop Ponies](https://github.com/RoosterDragon/Desktop-Ponies), but for Android phones and tablets, instead of PC (and it has a lot fewer features and doesn't come with as many ponies).
+
 <img src='screenshots/screen1.png' width='180'> <img src='screenshots/drag.png' width='180'> <img src='screenshots/preferences.png' width='180'> <img src='screenshots/screen2.png' width='180'>
 
 ## Installation
 This wallpaper should be compatible with any device running Android 2.2 (Froyo) or higher.
 
-1. Download the latest version of PonyPaper-release.apk from [the releases page](http://github.com/Smithers888/PonyPaper/releases).
+1. Download `PonyPaper-release.apk` from [the latest release](http://github.com/Smithers888/PonyPaper/releases).
 2. Open the file on your device to install the app. Your device may prompt you to allow installation of non-market apps.
 3. To use the wallpaper, go to the home screen and press and hold the background. Navigate the ensuing dialogs to set the wallpaper of the home screen from "Live wallpapers". Next, select the "Pony Paper" wallpaper.
 4. Optional: choose "settings" and configure the wallpaper as listed below.
