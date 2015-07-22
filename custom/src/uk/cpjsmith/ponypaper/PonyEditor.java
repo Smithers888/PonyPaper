@@ -430,6 +430,7 @@ public class PonyEditor extends JPanel implements DocumentListener {
         }
     };
     
+    private JFrame parentFrame;
     private DefaultListModel<String> actionListModel;
     private JList<String> actionList;
     private ActionPanel actionSettingsPane;
@@ -441,8 +442,10 @@ public class PonyEditor extends JPanel implements DocumentListener {
     private PonyDefinition ponyDefinition;
     private boolean hasChanges;
     
-    private PonyEditor() {
+    private PonyEditor(JFrame parentFrame) {
         super(new GridBagLayout());
+        
+        this.parentFrame = parentFrame;
         
         fc = new JFileChooser(".");
         fc.setAcceptAllFileFilterUsed(false);
@@ -470,12 +473,23 @@ public class PonyEditor extends JPanel implements DocumentListener {
         createNewPony();
     }
     
+    private void setFile(File file) {
+        currentFile = file;
+        if (file != null) {
+            parentFrame.setTitle("PonyPaper Custom Pony Editor - " + file.getName());
+        } else {
+            parentFrame.setTitle("PonyPaper Custom Pony Editor");
+        }
+    }
+    
     private void createNewPony() {
-        currentFile = null;
+        setFile(null);
         ponyDefinition = new PonyDefinition();
-        hasChanges = false;
         
         actionListModel.clear();
+        startActionsField.setText("");
+        
+        hasChanges = false;
     }
     
     private void loadPony(File file) {
@@ -510,7 +524,7 @@ public class PonyEditor extends JPanel implements DocumentListener {
             return;
         }
         
-        currentFile = file;
+        setFile(file);
         ponyDefinition = null;
         
         actionListModel.clear();
@@ -541,7 +555,7 @@ public class PonyEditor extends JPanel implements DocumentListener {
         try {
             writer = new PrintWriter(file);
             ponyDefinition.writeDefinition(writer);
-            currentFile = file;
+            setFile(file);
             hasChanges = false;
             return true;
         } catch (IOException e) {
@@ -714,12 +728,12 @@ public class PonyEditor extends JPanel implements DocumentListener {
     }
     
     private static void createAndShowGUI() {
-        JFrame frame = new JFrame("PonyPaper Custom Pony Editor");
+        JFrame frame = new JFrame();
         frame.setMinimumSize(new Dimension(600, 450));
         frame.setPreferredSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         
-        PonyEditor contentPane = new PonyEditor();
+        PonyEditor contentPane = new PonyEditor(frame);
         contentPane.setOpaque(true);
         frame.setContentPane(contentPane);
         frame.addWindowListener(contentPane.windowListener);
