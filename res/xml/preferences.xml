@@ -29,6 +29,9 @@
         <CheckBoxPreference android:key="pref_ab"
                             android:title="Apple Bloom"
                             android:defaultValue="true" />
+        <CheckBoxPreference android:key="pref_babs"
+                            android:title="Babs Seed"
+                            android:defaultValue="true" />
         <CheckBoxPreference android:key="pref_scootaloo"
                             android:title="Scootaloo"
                             android:defaultValue="true" />
@@ -36,13 +39,19 @@
                             android:title="Sweetie Belle"
                             android:defaultValue="true" />
     </PreferenceCategory>
-    <PreferenceCategory android:key="pref_princess"
-                        android:title="Princesses">
+    <PreferenceCategory android:key="pref_royalty"
+                        android:title="Royalty">
+        <CheckBoxPreference android:key="pref_cadance"
+                            android:title="Princess Cadance"
+                            android:defaultValue="true" />
         <CheckBoxPreference android:key="pref_celestia"
                             android:title="Princess Celestia"
                             android:defaultValue="true" />
         <CheckBoxPreference android:key="pref_luna"
                             android:title="Princess Luna"
+                            android:defaultValue="true" />
+        <CheckBoxPreference android:key="pref_sa"
+                            android:title="Shining Armor"
                             android:defaultValue="true" />
     </PreferenceCategory>
     <PreferenceCategory android:key="pref_other"
@@ -56,20 +65,32 @@
         <CheckBoxPreference android:key="pref_doctor"
                             android:title="Dr. Hooves"
                             android:defaultValue="true" />
+        <CheckBoxPreference android:key="pref_gilda"
+                            android:title="Gilda"
+                            android:defaultValue="true" />
         <CheckBoxPreference android:key="pref_lyra"
                             android:title="Lyra Heartstrings"
                             android:defaultValue="true" />
         <CheckBoxPreference android:key="pref_octavia"
                             android:title="Octavia"
                             android:defaultValue="true" />
-        <CheckBoxPreference android:key="pref_sd"
-                            android:title="Sweetie Drops"
+        <CheckBoxPreference android:key="pref_soarin"
+                            android:title="Soarin"
+                            android:defaultValue="true" />
+        <CheckBoxPreference android:key="pref_spitfire"
+                            android:title="Spitfire"
                             android:defaultValue="true" />
         <CheckBoxPreference android:key="pref_ss"
                             android:title="Sunset Shimmer"
                             android:defaultValue="true" />
+        <CheckBoxPreference android:key="pref_sd"
+                            android:title="Sweetie Drops"
+                            android:defaultValue="true" />
         <CheckBoxPreference android:key="pref_vinyl"
                             android:title="Vinyl Scratch"
+                            android:defaultValue="true" />
+        <CheckBoxPreference android:key="pref_zecora"
+                            android:title="Zecora"
                             android:defaultValue="true" />
     </PreferenceCategory>
     <PreferenceCategory android:key="pref_misc"

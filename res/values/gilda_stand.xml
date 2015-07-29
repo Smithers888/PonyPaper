@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="gilda_stand_l">
+        <item>100</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>200</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>20</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>150</item>
+        <item>5</item>
+        <item>5</item>
+        <item>10</item>
+        <item>5</item>
+        <item>300</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>10</item>
+        <item>10</item>
+        <item>250</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+    </integer-array>
+    <integer-array name="gilda_stand_r">
+        <item>100</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>200</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>20</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>150</item>
+        <item>5</item>
+        <item>5</item>
+        <item>10</item>
+        <item>5</item>
+        <item>300</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>10</item>
+        <item>10</item>
+        <item>250</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+    </integer-array>
+    <array name="gilda_stand">
+        <item>@drawable/gilda_stand_l</item>
+        <item>@array/gilda_stand_l</item>
+        <item>@drawable/gilda_stand_r</item>
+        <item>@array/gilda_stand_r</item>
+    </array>
+</resources>

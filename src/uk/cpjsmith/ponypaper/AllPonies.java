@@ -36,24 +36,31 @@ public class AllPonies {
         Resources res = context.getResources();
         if (prefs.getBoolean("pref_ab", true)) result.add(makeAppleBloom(res));
         if (prefs.getBoolean("pref_aj", true)) result.add(makeApplejack(res));
+        if (prefs.getBoolean("pref_babs", true)) result.add(makeBabsSeed(res));
         if (prefs.getBoolean("pref_bigmac", true)) result.add(makeBigMcIntosh(res));
         if (prefs.getBoolean("pref_derpy", true)) result.add(makeDerpyHooves(res));
         if (prefs.getBoolean("pref_doctor", true)) result.add(makeDoctorHooves(res));
         if (prefs.getBoolean("pref_fs", true)) result.add(makeFluttershy(res));
+        if (prefs.getBoolean("pref_gilda", true)) result.add(makeGilda(res));
         if (prefs.getBoolean("pref_lyra", true)) result.add(makeLyraHeartstrings(res));
         if (prefs.getBoolean("pref_octavia", true)) result.add(makeOctavia(res));
         if (prefs.getBoolean("pref_pp", true)) result.add(makePinkiePie(res));
+        if (prefs.getBoolean("pref_cadance", true)) result.add(makePrincessCadance(res));
         if (prefs.getBoolean("pref_celestia", true)) result.add(makePrincessCelestia(res));
         if (prefs.getBoolean("pref_luna", true)) result.add(makePrincessLuna(res));
         if (prefs.getBoolean("pref_rd", true)) result.add(makeRainbowDash(res));
         if (prefs.getBoolean("pref_rarity", true)) result.add(makeRarity(res));
         if (prefs.getBoolean("pref_scootaloo", true)) result.add(makeScootaloo(res));
+        if (prefs.getBoolean("pref_sa", true)) result.add(makeShiningArmor(res));
+        if (prefs.getBoolean("pref_soarin", true)) result.add(makeSoarin(res));
         if (prefs.getBoolean("pref_spike", true)) result.add(makeSpike(res));
+        if (prefs.getBoolean("pref_spitfire", true)) result.add(makeSpitfire(res));
         if (prefs.getBoolean("pref_ss", true)) result.add(makeSunsetShimmer(res));
         if (prefs.getBoolean("pref_sb", true)) result.add(makeSweetieBelle(res));
         if (prefs.getBoolean("pref_sd", true)) result.add(makeSweetieDrops(res));
         if (prefs.getBoolean("pref_ts", true)) result.add(makeTwilightSparkle(res));
         if (prefs.getBoolean("pref_vinyl", true)) result.add(makeVinylScratch(res));
+        if (prefs.getBoolean("pref_zecora", true)) result.add(makeZecora(res));
         if (prefs.getBoolean("pref_custom", true)) loadCustomPonies(context, result);
         
         return result;
@@ -77,6 +84,32 @@ public class AllPonies {
         trot.setNextDrag(justTrot);
         
         return new Pony(all, justTrot);
+    }
+    
+    private static Pony makeDefaultFlyer(Resources res, int standId, int trotId, int flyId) {
+        PonyAction stand = new PonyAction(res, standId);
+        PonyAction trot = new PonyAction(res, trotId);
+        PonyAction fly = new PonyAction(res, flyId);
+        
+        PonyAction[] all = {stand, trot, fly};
+        PonyAction[] justStand = {stand};
+        PonyAction[] justFly = {fly};
+        PonyAction[] waitStates = {stand, fly};
+        PonyAction[] moveStates = {trot, fly};
+        
+        stand.setNextWaiting(justStand);
+        trot.setNextWaiting(justStand);
+        fly.setNextWaiting(waitStates);
+        
+        stand.setNextMoving(moveStates);
+        trot.setNextMoving(moveStates);
+        fly.setNextMoving(justFly);
+        
+        stand.setNextDrag(justFly);
+        trot.setNextDrag(justFly);
+        fly.setNextDrag(justFly);
+        
+        return new Pony(all, moveStates);
     }
     
     private static Pony makeAppleBloom(Resources res) {
@@ -106,6 +139,10 @@ public class AllPonies {
         drag.setNextDrag(justDrag);
         
         return new Pony(all, justTrot);
+    }
+    
+    private static Pony makeBabsSeed(Resources res) {
+        return makeDefaultPony(res, R.array.babs_stand, R.array.babs_trot);
     }
     
     private static Pony makeBigMcIntosh(Resources res) {
@@ -193,6 +230,10 @@ public class AllPonies {
         return new Pony(all, moveStates);
     }
     
+    private static Pony makeGilda(Resources res) {
+        return makeDefaultFlyer(res, R.array.gilda_stand, R.array.gilda_walk, R.array.gilda_fly);
+    }
+    
     private static Pony makeLyraHeartstrings(Resources res) {
         PonyAction sit = new PonyAction(res, R.array.lyra_sit);
         PonyAction stand = new PonyAction(res, R.array.lyra_stand);
@@ -250,56 +291,16 @@ public class AllPonies {
         return new Pony(all, moveStates);
     }
     
+    private static Pony makePrincessCadance(Resources res) {
+        return makeDefaultFlyer(res, R.array.cadance_stand, R.array.cadance_walk, R.array.cadance_fly);
+    }
+    
     private static Pony makePrincessCelestia(Resources res) {
-        PonyAction stand = new PonyAction(res, R.array.celestia_stand);
-        PonyAction walk = new PonyAction(res, R.array.celestia_walk);
-        PonyAction fly = new PonyAction(res, R.array.celestia_fly);
-        
-        PonyAction[] all = {stand, walk, fly};
-        PonyAction[] justStand = {stand};
-        PonyAction[] justFly = {fly};
-        PonyAction[] waitStates = {stand, fly};
-        PonyAction[] moveStates = {walk, fly};
-        
-        stand.setNextWaiting(justStand);
-        walk.setNextWaiting(justStand);
-        fly.setNextWaiting(waitStates);
-        
-        stand.setNextMoving(moveStates);
-        walk.setNextMoving(moveStates);
-        fly.setNextMoving(justFly);
-        
-        stand.setNextDrag(justFly);
-        walk.setNextDrag(justFly);
-        fly.setNextDrag(justFly);
-        
-        return new Pony(all, moveStates);
+        return makeDefaultFlyer(res, R.array.celestia_stand, R.array.celestia_walk, R.array.celestia_fly);
     }
     
     private static Pony makePrincessLuna(Resources res) {
-        PonyAction stand = new PonyAction(res, R.array.luna_stand);
-        PonyAction walk = new PonyAction(res, R.array.luna_walk);
-        PonyAction fly = new PonyAction(res, R.array.luna_fly);
-        
-        PonyAction[] all = {stand, walk, fly};
-        PonyAction[] justStand = {stand};
-        PonyAction[] justFly = {fly};
-        PonyAction[] waitStates = {stand, fly};
-        PonyAction[] moveStates = {walk, fly};
-        
-        stand.setNextWaiting(justStand);
-        walk.setNextWaiting(justStand);
-        fly.setNextWaiting(waitStates);
-        
-        stand.setNextMoving(moveStates);
-        walk.setNextMoving(moveStates);
-        fly.setNextMoving(justFly);
-        
-        stand.setNextDrag(justFly);
-        walk.setNextDrag(justFly);
-        fly.setNextDrag(justFly);
-        
-        return new Pony(all, moveStates);
+        return makeDefaultFlyer(res, R.array.luna_stand, R.array.luna_walk, R.array.luna_fly);
     }
     
     private static Pony makeRainbowDash(Resources res) {
@@ -362,8 +363,20 @@ public class AllPonies {
         return makeDefaultPony(res, R.array.scootaloo_stand, R.array.scootaloo_trot);
     }
     
+    private static Pony makeShiningArmor(Resources res) {
+        return makeDefaultPony(res, R.array.sa_stand, R.array.sa_walk);
+    }
+    
+    private static Pony makeSoarin(Resources res) {
+        return makeDefaultFlyer(res, R.array.soarin_stand, R.array.soarin_trot, R.array.soarin_fly);
+    }
+    
     private static Pony makeSpike(Resources res) {
         return makeDefaultPony(res, R.array.spike_stand, R.array.spike_walk);
+    }
+    
+    private static Pony makeSpitfire(Resources res) {
+        return makeDefaultFlyer(res, R.array.spitfire_stand, R.array.spitfire_trot, R.array.spitfire_fly);
     }
     
     private static Pony makeSunsetShimmer(Resources res) {
@@ -489,6 +502,10 @@ public class AllPonies {
         return new Pony(all, moveStates);
     }
     
+    private static Pony makeZecora(Resources res) {
+        return makeDefaultPony(res, R.array.zecora_stand, R.array.zecora_trot);
+    }
+    
     private static PonyAction[] getActions(HashMap<String, PonyAction> actions, String[] actionNames) {
         PonyAction[] result = new PonyAction[actionNames.length];
         for (int j = 0; j < actionNames.length; j++) {
@@ -522,7 +539,7 @@ public class AllPonies {
                 definition.validate();
                 ponies.add(makeCustomPony(definition));
             } catch (Exception e) {
-                android.util.Log.e("PonyPaper", e.toString());
+                android.util.Log.e("PonyPaper", "Error loading " + files[i] + ": " + e.toString());
                 continue;
             }
         }

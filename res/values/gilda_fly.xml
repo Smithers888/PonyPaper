@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="gilda_fly_l">
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+    </integer-array>
+    <integer-array name="gilda_fly_r">
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+    </integer-array>
+    <array name="gilda_fly">
+        <item>@drawable/gilda_fly_l</item>
+        <item>@array/gilda_fly_l</item>
+        <item>@drawable/gilda_fly_r</item>
+        <item>@array/gilda_fly_r</item>
+    </array>
+</resources>

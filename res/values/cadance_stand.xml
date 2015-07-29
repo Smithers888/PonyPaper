@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="cadance_stand_l">
+        <item>500</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+    </integer-array>
+    <integer-array name="cadance_stand_r">
+        <item>500</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+    </integer-array>
+    <array name="cadance_stand">
+        <item>@drawable/cadance_stand_l</item>
+        <item>@array/cadance_stand_l</item>
+        <item>@drawable/cadance_stand_r</item>
+        <item>@array/cadance_stand_r</item>
+    </array>
+</resources>
