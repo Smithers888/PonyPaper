@@ -4,7 +4,9 @@ This tool enables the creation of custom ponies to use on your Android wallpaper
 ## Overview
 PonyPaper represent each custom pony as an XML file. This editor is capable of creating and editting these files, selecting the desired sprites and behaviours of the pony.
 
-Once a pony has been created by the editor, it can be loaded into the wallpaper by connecting your device to your computer and copying the .xml file into the `Android/data/uk.cpjsmith.ponypaper/files` directory and then forcing the wallpaper to reload custom ponies by going to the wallpaper's preferences and disabling and re-enabling custom ponies. (Note: you can disable all of the built-in ponies as a quick way to test that your custom pony has loaded).
+Once a pony has been created by the editor, it can be loaded into the wallpaper by connecting your device to your computer and copying the .xml file into the `Android/data/uk.cpjsmith.ponypaper/files` directory and then forcing the wallpaper to reload custom ponies by going to the wallpaper's preferences and disabling and re-enabling custom ponies. (Note: if you're in the right place, there should be a file already in this directory titled `custom-ponies-go-here`). (Note: disabling all of the built-in ponies is the quickest way to test that your custom pony has loaded).
+
+Files for some of my own favourite fan characters are available at [http://cpjsmith.co.uk/downloads/ponypaper/](http://cpjsmith.co.uk/downloads/ponypaper/)
 
 ## Sprites
 For each action that your pony can perform, the app requires a sprite each for the left- and right-facing directions. The editor can import sprites in two formats.
