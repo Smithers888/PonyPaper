@@ -93,11 +93,13 @@
                             android:title="Zecora"
                             android:defaultValue="true" />
     </PreferenceCategory>
+    <PreferenceCategory android:key="pref_custom"
+                        android:title="Custom ponies">
+        <Preference android:key="pref_add_custom"
+                    android:title="Add custom pony" />
+    </PreferenceCategory>
     <PreferenceCategory android:key="pref_misc"
                         android:title="Other options">
-        <CheckBoxPreference android:key="pref_custom"
-                            android:title="Custom ponies"
-                            android:defaultValue="true" />
         <CheckBoxPreference android:key="pref_background"
                             android:title="Use background"
                             android:defaultValue="false" />

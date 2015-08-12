@@ -17,6 +17,13 @@ import org.w3c.dom.Document;
  */
 public class AllPonies {
     
+    public static final FilenameFilter xmlFilter = new FilenameFilter() {
+        @Override
+        public boolean accept(File dir, String filename) {
+            return filename.endsWith(".xml");
+        }
+    };
+    
     /**
      * Class is not instantiable.
      */
@@ -61,7 +68,7 @@ public class AllPonies {
         if (prefs.getBoolean("pref_ts", true)) result.add(makeTwilightSparkle(res));
         if (prefs.getBoolean("pref_vinyl", true)) result.add(makeVinylScratch(res));
         if (prefs.getBoolean("pref_zecora", true)) result.add(makeZecora(res));
-        if (prefs.getBoolean("pref_custom", true)) loadCustomPonies(context, result);
+        loadCustomPonies(context, prefs, result);
         
         return result;
     }
@@ -514,7 +521,7 @@ public class AllPonies {
         return result;
     }
     
-    private static void loadCustomPonies(Context context, ArrayList<Pony> ponies) {
+    private static void loadCustomPonies(Context context, SharedPreferences prefs, ArrayList<Pony> ponies) {
         File dir = context.getExternalFilesDir(null);
         if (dir == null) return; // External storage is unavailable, so we can't load any custom ponies.
         
@@ -523,24 +530,20 @@ public class AllPonies {
         } catch (IOException e) {
         }
         
-        File[] files = dir.listFiles(new FilenameFilter() {
-            @Override
-            public boolean accept(File dir, String filename) {
-                return filename.endsWith(".xml");
-            }
-        });
+        File[] files = dir.listFiles(xmlFilter);
         
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         for (int i = 0; i < files.length; i++) {
-            try {
-                DocumentBuilder docBuilder = dbf.newDocumentBuilder();
-                Document document = docBuilder.parse(files[i]);
-                PonyDefinition definition = new PonyDefinition(document);
-                definition.validate();
-                ponies.add(makeCustomPony(definition));
-            } catch (Exception e) {
-                android.util.Log.e("PonyPaper", "Error loading " + files[i] + ": " + e.toString());
-                continue;
+            if (prefs.getBoolean("pref_custom_" + files[i].getName(), true)) {
+                try {
+                    DocumentBuilder docBuilder = dbf.newDocumentBuilder();
+                    Document document = docBuilder.parse(files[i]);
+                    PonyDefinition definition = new PonyDefinition(document);
+                    definition.validate();
+                    ponies.add(makeCustomPony(definition));
+                } catch (Exception e) {
+                    android.util.Log.e("PonyPaper", "Error loading " + files[i] + ": " + e.toString());
+                }
             }
         }
     }
