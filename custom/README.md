@@ -1,12 +1,17 @@
-# PonyPaper Custom Pony Editor
-This tool enables the creation of custom ponies to use on your Android wallpaper.
+# Custom ponies in PonyPaper
+I.e. adding extra ponies (griffons, dragons, etc.) to PonyPaper that aren't available by default. This can mean anything from your own OC to characters from the fandom or even canon characters that I haven't added yet (and how could I possibly not have added *insert name here* because they are clearly **best horse**).
 
 ## Overview
-PonyPaper represent each custom pony as an XML file. This editor is capable of creating and editting these files, selecting the desired sprites and behaviours of the pony.
+PonyPaper represent each custom pony as a single XML file.
 
-Once a pony has been created by the editor, it can be loaded into the wallpaper by connecting your device to your computer and copying the .xml file into the `Android/data/uk.cpjsmith.ponypaper/files` directory and then forcing the wallpaper to reload custom ponies by going to the wallpaper's preferences and disabling and re-enabling custom ponies. (Note: if you're in the right place, there should be a file already in this directory titled `custom-ponies-go-here`). (Note: disabling all of the built-in ponies is the quickest way to test that your custom pony has loaded).
+Once a pony has been created by the editor, it can be loaded into the wallpaper in either of two ways:
+* Connect your device to your computer and copy the .xml file into the `Android/data/uk.cpjsmith.ponypaper/files` directory; then force the wallpaper to reload custom ponies by going to the wallpaper's preferences ensuring the custome pony is enabled. (Note: if you're in the right place, there should be a file already in this directory titled `custom-ponies-go-here`.)
+* Have the XML file hosted on a website and download it with your device's web browser; then go to the wallpaper's preferences, choose "Add custom pony" and select the file from your downloads.
 
-Files for some of my own favourite fan characters are available at [http://cpjsmith.co.uk/downloads/ponypaper/](http://cpjsmith.co.uk/downloads/ponypaper/)
+Files for some of my own favourite fan characters are available at http://cpjsmith.co.uk/downloads/ponypaper/.
+
+# PonyPaper Custom Pony Editor
+This tool is capable of creating and editting the XML files that represent custom ponies, selecting the desired sprites and behaviours of the pony.
 
 ## Sprites
 For each action that your pony can perform, the app requires a sprite each for the left- and right-facing directions. The editor can import sprites in two formats.
