@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
 import java.util.Random;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -40,6 +41,8 @@ public class Settings extends PreferenceActivity {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             
             File[] files = dir.listFiles(AllPonies.xmlFilter);
+            Arrays.sort(files);
+            PreferenceCategory customCat = (PreferenceCategory)findPreference("pref_custom");
             for (int i = 0; i < files.length; i++) {
                 String fileName = files[i].getName();
                 String prefKey = "pref_custom_" + fileName;
@@ -53,7 +56,7 @@ public class Settings extends PreferenceActivity {
                 CheckBoxPreference checkbox = new CheckBoxPreference(this);
                 checkbox.setKey(prefKey);
                 checkbox.setTitle(fileName);
-                ((PreferenceCategory)findPreference("pref_custom")).addPreference(checkbox);
+                customCat.addPreference(checkbox);
             }
         }
         
@@ -131,7 +134,6 @@ public class Settings extends PreferenceActivity {
                     
                     try {
                         String fileName = getFileName(ponyUri);
-                        showAlertDialog(fileName, ponyUri.toString());
                         if (!fileName.endsWith(".xml")) {
                             fileName += ".xml";
                         }
@@ -140,8 +142,16 @@ public class Settings extends PreferenceActivity {
                         
                         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
                         SharedPreferences.Editor editor = sp.edit();
+                        String prefKey = "pref_custom_" + fileName;
+                        editor.putBoolean(prefKey, true);
                         editor.putString("pref_add_custom", hash.toString());
                         editor.commit();
+                        if (findPreference(prefKey) == null) {
+                            CheckBoxPreference checkbox = new CheckBoxPreference(this);
+                            checkbox.setKey(prefKey);
+                            checkbox.setTitle(fileName);
+                            ((PreferenceCategory)findPreference("pref_custom")).addPreference(checkbox);
+                        }
                     } catch (IOException e) {
                         showAlertDialog("Failed to add pony", "An I/O error occurred.");
                     }
