@@ -6,7 +6,7 @@ PonyPaper represent each custom pony as a single XML file.
 
 Once a pony has been created by the editor, it can be loaded into the wallpaper in either of two ways:
 * Connect your device to your computer and copy the .xml file into the `Android/data/uk.cpjsmith.ponypaper/files` directory; then force the wallpaper to reload custom ponies by going to the wallpaper's preferences ensuring the custome pony is enabled. (Note: if you're in the right place, there should be a file already in this directory titled `custom-ponies-go-here`.)
-* Have the XML file hosted on a website and download it with your device's web browser; then go to the wallpaper's preferences, choose "Add custom pony" and select the file from your downloads.
+* Have the XML file hosted on a website and download it with your device's web browser; then go to the wallpaper's preferences, choose "Add custom pony" and select the file from your downloads. (Note: This may or may not work for you; it works on my phone, but when I try it on a virtual device, I don't get an option to select from downloads. Not sure what's going on here.)
 
 After the new pony is added, they can be enabled and disabled just like built-in ponies. Currently the only way to remove them completely is to delete the XML file manually.
 
