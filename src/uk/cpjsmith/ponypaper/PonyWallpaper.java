@@ -106,7 +106,7 @@ public class PonyWallpaper extends WallpaperService {
                     }
                 }
                 if (c != null) {
-                    c.drawColor(0xff3333ee);
+                    c.drawColor(0xff333333);
                     if (background != null) {
                         Rect srcRect = new Rect(0, 0, background.getWidth(), background.getHeight());
                         Rect cb = c.getClipBounds();
