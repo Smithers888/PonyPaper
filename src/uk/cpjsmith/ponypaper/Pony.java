@@ -122,7 +122,7 @@ public class Pony {
     }
     
     public void drawOn(Canvas c) {
-        currentAction.drawOn(c, direction, frameTime, currentPos, getScale());
+        currentAction.drawOn(c, direction, frameTime, currentPos, getScale(), motion == MOTION_DRAGGED);
     }
     
     /**

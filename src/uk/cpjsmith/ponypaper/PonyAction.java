@@ -160,13 +160,18 @@ public class PonyAction {
         return sprites[dir].totalTime;
     }
     
-    public void drawOn(Canvas c, int dir, int time, Point p, float scale) {
+    public void drawOn(Canvas c, int dir, int time, Point p, float scale, boolean dragged) {
         SpriteSheet sprite = sprites[dir];
         
         int sW = sprite.frameWidth;
         int sH = sprite.frameHeight;
         float dW = sW * scale;
         float dH = sH * scale;
+
+        if (dragged) {
+            p = new Point(p);
+            p.y -= dH/2 + 20 * scale;
+        }
         
         RectF dstRect = new RectF(p.x - dW/2, p.y - dH/2, p.x + dW/2, p.y + dH/2);
         
