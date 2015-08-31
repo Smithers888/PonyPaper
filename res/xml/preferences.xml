@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:custom="http://cpjsmith.uk/ponypaper/custom">
     <PreferenceCategory android:key="pref_mane6"
                         android:title="Mane 6">
         <CheckBoxPreference android:key="pref_aj"
@@ -98,6 +99,9 @@
         <uk.cpjsmith.ponypaper.NumberPickerPreference
                         android:key="pref_num_ponies"
                         android:title="Number of Ponies"
+                        custom:minValue="1"
+                        custom:maxValue="11"
+                        custom:wrap="false"
                         android:defaultValue="4" />
     </PreferenceCategory>
     <PreferenceCategory android:key="pref_custom"
