@@ -26,7 +26,7 @@
                             android:defaultValue="true" />
     </PreferenceCategory>
     <PreferenceCategory android:key="pref_cmc"
-                        android:title="Cutie Mark Crusadors">
+                        android:title="Cutie Mark Crusaders">
         <CheckBoxPreference android:key="pref_ab"
                             android:title="Apple Bloom"
                             android:defaultValue="true" />
