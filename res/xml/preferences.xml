@@ -27,6 +27,8 @@
                         custom:maxValue="24"
                         custom:wrap="false"
                         android:defaultValue="4" />
+        <CheckBoxPreference android:key="pref_drunk_mode"
+                            android:title="Drunk Mode" />
     </PreferenceCategory>
     <PreferenceCategory android:key="pref_mane6"
                         android:title="Mane 6">

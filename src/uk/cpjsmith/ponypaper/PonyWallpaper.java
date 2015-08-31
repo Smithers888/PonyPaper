@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.os.Handler;
@@ -20,6 +21,8 @@ public class PonyWallpaper extends WallpaperService {
         private Ponies ponies = null;
         private Bitmap background = null;
         private float xOffset = 0.5f;
+        private Paint paint = null;
+        private int background_color = 0;
         
         private boolean isVisible = false;
         private final Runnable drawFrameCallback = new Runnable() {
@@ -30,6 +33,7 @@ public class PonyWallpaper extends WallpaperService {
         
         private PonyEngine() {
             getPreferences().registerOnSharedPreferenceChangeListener(this);
+            paint = new Paint();
         }
         
         private SharedPreferences getPreferences() {
@@ -89,6 +93,13 @@ public class PonyWallpaper extends WallpaperService {
                     ponies = new Ponies(PonyWallpaper.this, prefs);
                     
                     background = null;
+                    if (prefs.getBoolean("pref_drunk_mode", false)) {
+                        background_color = 0x33333333;
+                        paint.setAlpha(60);
+                    } else {
+                        background_color = 0xff333333;
+                        paint.setAlpha(255);
+                    }
                     if (prefs.getBoolean("pref_background", false)) {
                         File bgFile = new File(getExternalFilesDir(null), "background");
                         if (bgFile.exists()) {
@@ -106,7 +117,6 @@ public class PonyWallpaper extends WallpaperService {
                     }
                 }
                 if (c != null) {
-                    c.drawColor(0xff333333);
                     if (background != null) {
                         Rect srcRect = new Rect(0, 0, background.getWidth(), background.getHeight());
                         Rect cb = c.getClipBounds();
@@ -115,7 +125,9 @@ public class PonyWallpaper extends WallpaperService {
                                                   (cb.height() - srcRect.height() * scale) * 0.5f,
                                                   (cb.width() - srcRect.width() * scale) * xOffset + srcRect.width() * scale,
                                                   (cb.height() - srcRect.height() * scale) * 0.5f + srcRect.height() * scale);
-                        c.drawBitmap(background, srcRect, dstRect, null);
+                        c.drawBitmap(background, srcRect, dstRect, paint);
+                    } else {
+                        c.drawColor(background_color);
                     }
                     ponies.drawAndUpdate(c);
                 }
