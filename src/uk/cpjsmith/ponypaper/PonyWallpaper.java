@@ -83,6 +83,7 @@ public class PonyWallpaper extends WallpaperService {
             
             Canvas c = null;
             try {
+                c = holder.lockCanvas();
                 if (ponies == null) {
                     SharedPreferences prefs = getPreferences();
                     ponies = new Ponies(PonyWallpaper.this, prefs);
@@ -96,20 +97,14 @@ public class PonyWallpaper extends WallpaperService {
                             bfo.inJustDecodeBounds = true;
                             BitmapFactory.decodeFile(bgFile.toString(), bfo);
                             int h = bfo.outHeight, w = bfo.outWidth;
-                            int scale = 1;
-                            while (h * w >= 65536)
-                            {
-                                h /= 2;
-                                w /= 2;
-                                scale *= 2;
-                            }
+                            int scale = Math.min(h / c.getHeight(), w / c.getWidth());
+                            scale *= prefs.getInt("pref_pixelation", 1);
                             bfo.inJustDecodeBounds = false;
                             bfo.inSampleSize = scale;
                             background = BitmapFactory.decodeFile(bgFile.toString(), bfo);
                         }
                     }
                 }
-                c = holder.lockCanvas();
                 if (c != null) {
                     c.drawColor(0xff3333ee);
                     if (background != null) {

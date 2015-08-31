@@ -117,5 +117,13 @@
         <Preference android:key="pref_select_background"
                     android:title="Select background"
                     android:dependency="pref_background" />
+        <uk.cpjsmith.ponypaper.NumberPickerPreference
+                        android:key="pref_pixelation"
+                        android:title="Background Pixelation Level"
+                        android:dependency="pref_background"
+                        custom:minValue="1"
+                        custom:maxValue="24"
+                        custom:wrap="false"
+                        android:defaultValue="4" />
     </PreferenceCategory>
 </PreferenceScreen>
