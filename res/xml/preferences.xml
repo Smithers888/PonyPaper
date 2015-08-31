@@ -93,6 +93,13 @@
                             android:title="Zecora"
                             android:defaultValue="true" />
     </PreferenceCategory>
+    <PreferenceCategory android:key="pref_behaviour"
+                        android:title="Pony Behaviour">
+        <uk.cpjsmith.ponypaper.NumberPickerPreference
+                        android:key="pref_num_ponies"
+                        android:title="Number of Ponies"
+                        android:defaultValue="4" />
+    </PreferenceCategory>
     <PreferenceCategory android:key="pref_custom"
                         android:title="Custom ponies">
         <Preference android:key="pref_add_custom"
