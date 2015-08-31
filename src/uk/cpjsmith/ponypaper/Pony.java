@@ -83,9 +83,9 @@ public class Pony {
                 allActions[i].load();
             }
             currentPos = randomOffScreen();
-            targetPos = randomOnScreen();
             changeAction(startActions[random.nextInt(startActions.length)]);
             motion = currentAction.type == PonyAction.NORMAL ? MOTION_MOVING : MOTION_SPECIAL;
+            setRandomTarget();
         } else {
             frameTime += 4;
             if (frameTime >= currentAction.getAnimationTime(direction)) {
@@ -108,9 +108,9 @@ public class Pony {
                     if (waitTimer > 0) {
                         waitTimer--;
                     } else {
-                        setRandomTarget();
                         setMoving();
                         motion = currentAction.type == PonyAction.NORMAL ? MOTION_MOVING : MOTION_SPECIAL;
+                        setRandomTarget();
                     }
                     break;
                     
@@ -238,10 +238,18 @@ public class Pony {
     
     private void setRandomTarget() {
         if (random.nextInt(8) < 1) {
-            targetPos = randomOffScreen();
+            if (motion == MOTION_MOVING) {
+                targetPos = randomOffScreenHoriz();
+            } else {
+                targetPos = randomOffScreen();
+            }
             leavingMode = LM_GOING;
         } else {
-            targetPos = randomOnScreen();
+            if (motion == MOTION_MOVING) {
+                targetPos = randomOnScreenHoriz();
+            } else {
+                targetPos = randomOnScreen();
+            }
         }
     }
     
@@ -282,6 +290,25 @@ public class Pony {
     }
     
     /**
+     * Chooses a random point on the screen, restricted to areas roughly
+     * horizontal with the current position
+     * 
+     * @return the chosen point.
+     */
+    private Point randomOnScreenHoriz() {
+        Point newPoint = null;
+        for (int i = 0; i < 100; i++) {
+            newPoint = randomOnScreen();
+            if (newPoint.x != currentPos.x &&
+                Math.atan(Math.abs(newPoint.y - currentPos.y) /
+                Math.abs(newPoint.x - currentPos.x)) < Math.PI / 6) {
+                break;
+            }
+        }
+        return newPoint;
+    }
+
+    /**
      * Chooses a random point just to the side of the screen.
      * 
      * @return the chosen point.
@@ -290,6 +317,25 @@ public class Pony {
         int s = (int)(30 * getScale());
         return new Point(random.nextBoolean() ? screenBounds.left - s : screenBounds.right + s,
                          screenBounds.top + s + random.nextInt(screenBounds.height() - 2*s));
+    }
+
+    /**
+     * Chooses a random point just to the side of the screen, 
+     * restricted to areas roughly horizontal with the current position
+     * 
+     * @return the chosen point.
+     */
+    private Point randomOffScreenHoriz() {
+        Point newPoint = null;
+        for (int i = 0; i < 100; i++) {
+            newPoint = randomOffScreen();
+            if (newPoint.x != currentPos.x &&
+                Math.atan(Math.abs(newPoint.y - currentPos.y) /
+                Math.abs(newPoint.x - currentPos.x)) < Math.PI / 6) {
+                break;
+            }
+        }
+        return newPoint;
     }
     
     private void setDirection(Point targetPos) {
