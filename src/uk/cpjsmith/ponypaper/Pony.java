@@ -271,7 +271,7 @@ public class Pony {
     }
     
     /**
-     * Chooses a random point just to the side of the screen.
+     * Chooses a random point on the screen.
      * 
      * @return the chosen point.
      */
@@ -282,7 +282,7 @@ public class Pony {
     }
     
     /**
-     * Chooses a random point on the screen.
+     * Chooses a random point just to the side of the screen.
      * 
      * @return the chosen point.
      */
