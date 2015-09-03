@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:custom="http://cpjsmith.uk/ponypaper/custom">
+    <PreferenceCategory android:key="pref_behaviour"
+                        android:title="Pony Behaviour">
+        <uk.cpjsmith.ponypaper.NumberPickerPreference
+                        android:key="pref_num_ponies"
+                        android:title="Number of Ponies"
+                        custom:minValue="1"
+                        custom:maxValue="11"
+                        custom:wrap="false"
+                        android:defaultValue="4" />
+    </PreferenceCategory>
+    <PreferenceCategory android:key="pref_misc"
+                        android:title="Other options">
+        <CheckBoxPreference android:key="pref_background"
+                            android:title="Use background"
+                            android:defaultValue="false" />
+        <Preference android:key="pref_select_background"
+                    android:title="Select background"
+                    android:dependency="pref_background" />
+        <uk.cpjsmith.ponypaper.NumberPickerPreference
+                        android:key="pref_pixelation"
+                        android:title="Background Pixelation Level"
+                        android:dependency="pref_background"
+                        custom:minValue="1"
+                        custom:maxValue="24"
+                        custom:wrap="false"
+                        android:defaultValue="4" />
+        <CheckBoxPreference android:key="pref_drunk_mode"
+                            android:title="Drunk Mode" />
+    </PreferenceCategory>
     <PreferenceCategory android:key="pref_mane6"
                         android:title="Mane 6">
         <CheckBoxPreference android:key="pref_aj"
@@ -25,7 +55,7 @@
                             android:defaultValue="true" />
     </PreferenceCategory>
     <PreferenceCategory android:key="pref_cmc"
-                        android:title="Cutie Mark Crusadors">
+                        android:title="Cutie Mark Crusaders">
         <CheckBoxPreference android:key="pref_ab"
                             android:title="Apple Bloom"
                             android:defaultValue="true" />
@@ -97,14 +127,5 @@
                         android:title="Custom ponies">
         <Preference android:key="pref_add_custom"
                     android:title="Add custom pony" />
-    </PreferenceCategory>
-    <PreferenceCategory android:key="pref_misc"
-                        android:title="Other options">
-        <CheckBoxPreference android:key="pref_background"
-                            android:title="Use background"
-                            android:defaultValue="false" />
-        <Preference android:key="pref_select_background"
-                    android:title="Select background"
-                    android:dependency="pref_background" />
     </PreferenceCategory>
 </PreferenceScreen>
