@@ -44,12 +44,14 @@ public class AllPonies {
         if (prefs.getBoolean("pref_ab", true)) result.add(makeAppleBloom(res));
         if (prefs.getBoolean("pref_aj", true)) result.add(makeApplejack(res));
         if (prefs.getBoolean("pref_babs", true)) result.add(makeBabsSeed(res));
+        if (prefs.getBoolean("pref_bp", true)) result.add(makeBerryPunch(res));
         if (prefs.getBoolean("pref_bigmac", true)) result.add(makeBigMcIntosh(res));
         if (prefs.getBoolean("pref_derpy", true)) result.add(makeDerpyHooves(res));
         if (prefs.getBoolean("pref_doctor", true)) result.add(makeDoctorHooves(res));
         if (prefs.getBoolean("pref_fs", true)) result.add(makeFluttershy(res));
         if (prefs.getBoolean("pref_gilda", true)) result.add(makeGilda(res));
         if (prefs.getBoolean("pref_lyra", true)) result.add(makeLyraHeartstrings(res));
+        if (prefs.getBoolean("pref_minuette", true)) result.add(makeMinuette(res));
         if (prefs.getBoolean("pref_octavia", true)) result.add(makeOctavia(res));
         if (prefs.getBoolean("pref_pp", true)) result.add(makePinkiePie(res));
         if (prefs.getBoolean("pref_cadance", true)) result.add(makePrincessCadance(res));
@@ -150,6 +152,34 @@ public class AllPonies {
     
     private static Pony makeBabsSeed(Resources res) {
         return makeDefaultPony(res, R.array.babs_stand, R.array.babs_trot);
+    }
+    
+    private static Pony makeBerryPunch(Resources res) {
+        PonyAction stand = new PonyAction(res, R.array.bp_stand);
+        PonyAction trot = new PonyAction(res, R.array.bp_trot);
+        PonyAction standdrunk = new PonyAction(res, R.array.bp_standdrunk);
+        PonyAction trotdrunk = new PonyAction(res, R.array.bp_trotdrunk);
+        
+        PonyAction[] all = {stand, trot, standdrunk, trotdrunk};
+        PonyAction[] waitStates = {stand, standdrunk};
+        PonyAction[] moveStates = {trot, trotdrunk};
+        
+        stand.setNextWaiting(waitStates);
+        trot.setNextWaiting(waitStates);
+        standdrunk.setNextWaiting(waitStates);
+        trotdrunk.setNextWaiting(waitStates);
+        
+        stand.setNextMoving(moveStates);
+        trot.setNextMoving(moveStates);
+        standdrunk.setNextMoving(moveStates);
+        trotdrunk.setNextMoving(moveStates);
+        
+        stand.setNextDrag(moveStates);
+        trot.setNextDrag(moveStates);
+        standdrunk.setNextDrag(moveStates);
+        trotdrunk.setNextDrag(moveStates);
+        
+        return new Pony(all, moveStates);
     }
     
     private static Pony makeBigMcIntosh(Resources res) {
@@ -263,6 +293,10 @@ public class AllPonies {
         trot.setNextDrag(justTrot);
         
         return new Pony(all, justTrot);
+    }
+    
+    private static Pony makeMinuette(Resources res) {
+        return makeDefaultPony(res, R.array.minuette_stand, R.array.minuette_trot);
     }
     
     private static Pony makeOctavia(Resources res) {

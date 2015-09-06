@@ -86,6 +86,9 @@
     </PreferenceCategory>
     <PreferenceCategory android:key="pref_other"
                         android:title="Other ponies">
+        <CheckBoxPreference android:key="pref_bp"
+                            android:title="Berry Punch"
+                            android:defaultValue="true" />
         <CheckBoxPreference android:key="pref_bigmac"
                             android:title="Big McIntosh"
                             android:defaultValue="true" />
@@ -100,6 +103,9 @@
                             android:defaultValue="true" />
         <CheckBoxPreference android:key="pref_lyra"
                             android:title="Lyra Heartstrings"
+                            android:defaultValue="true" />
+        <CheckBoxPreference android:key="pref_minuette"
+                            android:title="Minuette"
                             android:defaultValue="true" />
         <CheckBoxPreference android:key="pref_octavia"
                             android:title="Octavia"

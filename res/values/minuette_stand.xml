@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="minuette_stand_l">
+        <item>100</item>
+        <item>8</item>
+        <item>8</item>
+        <item>8</item>
+        <item>8</item>
+        <item>200</item>
+    </integer-array>
+    <integer-array name="minuette_stand_r">
+        <item>100</item>
+        <item>8</item>
+        <item>8</item>
+        <item>8</item>
+        <item>8</item>
+        <item>200</item>
+    </integer-array>
+    <array name="minuette_stand">
+        <item>@drawable/minuette_stand_l</item>
+        <item>@array/minuette_stand_l</item>
+        <item>@drawable/minuette_stand_r</item>
+        <item>@array/minuette_stand_r</item>
+    </array>
+</resources>
