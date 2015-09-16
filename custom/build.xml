@@ -21,7 +21,7 @@
              basedir="bin">
             <manifest>
                 <attribute name="Main-Class"
-                           value="uk.cpjsmith.ponypaper.PonyEditor" />
+                           value="uk.cpjsmith.ponypaper.custom.PonyEditor" />
             </manifest>
         </jar>
         <chmod file="customponies.jar"

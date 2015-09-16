@@ -1,4 +1,4 @@
-package uk.cpjsmith.ponypaper;
+package uk.cpjsmith.ponypaper.custom;
 
 import java.io.File;
 
