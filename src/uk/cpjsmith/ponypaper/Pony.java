@@ -281,7 +281,7 @@ public class Pony {
     /**
      * Chooses a random point on the screen.
      * 
-     * @return the chosen point.
+     * @return the chosen point
      */
     private Point randomOnScreen() {
         int s = (int)(30 * getScale());
@@ -291,47 +291,43 @@ public class Pony {
     
     /**
      * Chooses a random point on the screen, restricted to areas roughly
-     * horizontal with the current position
+     * horizontal with the current position.
      * 
-     * @return the chosen point.
+     * @return the chosen point
      */
     private Point randomOnScreenHoriz() {
         Point newPoint = null;
         for (int i = 0; i < 100; i++) {
             newPoint = randomOnScreen();
-            if (newPoint.x != currentPos.x &&
-                Math.atan(Math.abs(newPoint.y - currentPos.y) /
-                Math.abs(newPoint.x - currentPos.x)) < Math.PI / 6) {
+            if (Math.abs(newPoint.y - currentPos.y) < Math.abs(newPoint.x - currentPos.x)) {
                 break;
             }
         }
         return newPoint;
     }
-
+    
     /**
      * Chooses a random point just to the side of the screen.
      * 
-     * @return the chosen point.
+     * @return the chosen point
      */
     private Point randomOffScreen() {
         int s = (int)(30 * getScale());
         return new Point(random.nextBoolean() ? screenBounds.left - s : screenBounds.right + s,
                          screenBounds.top + s + random.nextInt(screenBounds.height() - 2*s));
     }
-
+    
     /**
-     * Chooses a random point just to the side of the screen, 
-     * restricted to areas roughly horizontal with the current position
+     * Chooses a random point just to the side of the screen, restricted to
+     * areas roughly horizontal with the current position.
      * 
-     * @return the chosen point.
+     * @return the chosen point
      */
     private Point randomOffScreenHoriz() {
         Point newPoint = null;
         for (int i = 0; i < 100; i++) {
             newPoint = randomOffScreen();
-            if (newPoint.x != currentPos.x &&
-                Math.atan(Math.abs(newPoint.y - currentPos.y) /
-                Math.abs(newPoint.x - currentPos.x)) < Math.PI / 6) {
+            if (Math.abs(newPoint.y - currentPos.y) < Math.abs(newPoint.x - currentPos.x)) {
                 break;
             }
         }

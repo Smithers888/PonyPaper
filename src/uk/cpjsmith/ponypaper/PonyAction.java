@@ -13,9 +13,9 @@ import java.util.Random;
  * Encapsulates a particular action for a pony. Ultimately, this unites the
  * {@code SpriteSheet} for the left- and right-facing modes of the action, as
  * well as information on possible next states. On construction, the sprites
- * are not immediately loaded and the {@link getAnimationTime()} and {@link
- * drawOn()} methods will fail with {@code NullPointerException} until the
- * {@link load()} method is called.
+ * are not immediately loaded and the {@link #getAnimationTime} and {@link
+ * #drawOn} methods will fail with {@code NullPointerException} until the
+ * {@link #load} method is called.
  */
 public class PonyAction {
     
@@ -119,11 +119,11 @@ public class PonyAction {
      * Load the sprites into memory. After this is called, all the methods of
      * this class become functional. It will also consume far more memory.
      * 
-     * @see unload()
+     * @see #unload()
      */
     public void load() {
         if (res != null) {
-            android.content.res.TypedArray array = res.obtainTypedArray(arrayId);
+            TypedArray array = res.obtainTypedArray(arrayId);
             
             int leftDrawableId = array.getResourceId(0, 0);
             int leftTimingId = array.getResourceId(1, 0);
@@ -150,7 +150,7 @@ public class PonyAction {
      * Unload the sprites from memory. This will release the memory consumed by
      * the images, but some methods of this class will cease to function.
      * 
-     * @see load()
+     * @see #load()
      */
     public void unload() {
         sprites = null;
@@ -167,7 +167,7 @@ public class PonyAction {
         int sH = sprite.frameHeight;
         float dW = sW * scale;
         float dH = sH * scale;
-
+        
         if (dragged) {
             p = new Point(p);
             p.y -= dH/2 + 20 * scale;

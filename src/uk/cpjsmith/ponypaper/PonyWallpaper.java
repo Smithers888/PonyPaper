@@ -22,7 +22,7 @@ public class PonyWallpaper extends WallpaperService {
         private Bitmap background = null;
         private float xOffset = 0.5f;
         private Paint paint = null;
-        private int background_color = 0;
+        private int backgroundColour = 0;
         
         private boolean isVisible = false;
         private final Runnable drawFrameCallback = new Runnable() {
@@ -94,11 +94,11 @@ public class PonyWallpaper extends WallpaperService {
                     
                     background = null;
                     if (prefs.getBoolean("pref_drunk_mode", false)) {
-                        background_color = 0x33333333;
-                        paint.setAlpha(60);
+                        backgroundColour = 0x33333333;
+                        paint.setAlpha(0x33);
                     } else {
-                        background_color = 0xff333333;
-                        paint.setAlpha(255);
+                        backgroundColour = 0xff333333;
+                        paint.setAlpha(0xff);
                     }
                     if (prefs.getBoolean("pref_background", false)) {
                         File bgFile = new File(getExternalFilesDir(null), "background");
@@ -127,7 +127,7 @@ public class PonyWallpaper extends WallpaperService {
                                                   (cb.height() - srcRect.height() * scale) * 0.5f + srcRect.height() * scale);
                         c.drawBitmap(background, srcRect, dstRect, paint);
                     } else {
-                        c.drawColor(background_color);
+                        c.drawColor(backgroundColour);
                     }
                     ponies.drawAndUpdate(c);
                 }

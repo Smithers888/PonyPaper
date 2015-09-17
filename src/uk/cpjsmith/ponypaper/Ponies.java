@@ -44,8 +44,8 @@ public class Ponies {
     public Ponies(Context context, SharedPreferences prefs) {
         inactivePonies = AllPonies.getPonies(context, prefs);
         
-        int n_ponies = prefs.getInt("pref_num_ponies", 4);
-        activeCount = Math.min(inactivePonies.size(), n_ponies);
+        activeCount = prefs.getInt("pref_num_ponies", 4);
+        activeCount = Math.min(inactivePonies.size(), activeCount);
         
         random = new Random();
         activePonies = new Pony[activeCount];
