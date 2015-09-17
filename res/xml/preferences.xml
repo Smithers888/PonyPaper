@@ -4,12 +4,12 @@
     <PreferenceCategory android:key="pref_behaviour"
                         android:title="Pony Behaviour">
         <uk.cpjsmith.ponypaper.NumberPickerPreference
-                        android:key="pref_num_ponies"
-                        android:title="Number of Ponies"
-                        custom:minValue="1"
-                        custom:maxValue="11"
-                        custom:wrap="false"
-                        android:defaultValue="4" />
+                android:key="pref_num_ponies"
+                android:title="Number of ponies"
+                custom:minValue="1"
+                custom:maxValue="11"
+                custom:wrap="false"
+                android:defaultValue="4" />
     </PreferenceCategory>
     <PreferenceCategory android:key="pref_misc"
                         android:title="Other options">
@@ -20,15 +20,15 @@
                     android:title="Select background"
                     android:dependency="pref_background" />
         <uk.cpjsmith.ponypaper.NumberPickerPreference
-                        android:key="pref_pixelation"
-                        android:title="Background Pixelation Level"
-                        android:dependency="pref_background"
-                        custom:minValue="1"
-                        custom:maxValue="24"
-                        custom:wrap="false"
-                        android:defaultValue="4" />
+                android:key="pref_pixelation"
+                android:title="Background pixelation level"
+                android:dependency="pref_background"
+                custom:minValue="1"
+                custom:maxValue="24"
+                custom:wrap="false"
+                android:defaultValue="4" />
         <CheckBoxPreference android:key="pref_drunk_mode"
-                            android:title="Drunk Mode" />
+                            android:title="Berry Punch mode" />
     </PreferenceCategory>
     <PreferenceCategory android:key="pref_mane6"
                         android:title="Mane 6">
