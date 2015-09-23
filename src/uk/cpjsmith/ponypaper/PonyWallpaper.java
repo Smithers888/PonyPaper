@@ -21,8 +21,10 @@ public class PonyWallpaper extends WallpaperService {
         private Ponies ponies = null;
         private Bitmap background = null;
         private float xOffset = 0.5f;
+        private boolean drunkMode = false;
         private Paint paint = null;
         private int backgroundColour = 0;
+        private int initFrameCount = 0;
         
         private boolean isVisible = false;
         private final Runnable drawFrameCallback = new Runnable() {
@@ -67,6 +69,11 @@ public class PonyWallpaper extends WallpaperService {
         public void onSurfaceChanged(SurfaceHolder holder, int format, int width, int height) {
             super.onSurfaceChanged(holder, format, width, height);
             if (ponies != null) ponies.reset();
+            if (drunkMode) {
+                initFrameCount = 0;
+                backgroundColour = 0xff333333;
+                paint.setAlpha(0xff);
+            }
             drawFrame();
         }
         
@@ -93,13 +100,10 @@ public class PonyWallpaper extends WallpaperService {
                     ponies = new Ponies(PonyWallpaper.this, prefs);
                     
                     background = null;
-                    if (prefs.getBoolean("pref_drunk_mode", false)) {
-                        backgroundColour = 0x33333333;
-                        paint.setAlpha(0x33);
-                    } else {
-                        backgroundColour = 0xff333333;
-                        paint.setAlpha(0xff);
-                    }
+                    drunkMode = prefs.getBoolean("pref_drunk_mode", false);
+                    initFrameCount = 0;
+                    backgroundColour = 0xff333333;
+                    paint.setAlpha(0xff);
                     if (prefs.getBoolean("pref_background", false)) {
                         File bgFile = new File(getExternalFilesDir(null), "background");
                         if (bgFile.exists()) {
@@ -115,6 +119,10 @@ public class PonyWallpaper extends WallpaperService {
                             background = BitmapFactory.decodeFile(bgFile.toString(), bfo);
                         }
                     }
+                }
+                if (drunkMode && initFrameCount <= 3 && initFrameCount++ == 3) {
+                    backgroundColour = 0x33333333;
+                    paint.setAlpha(0x33);
                 }
                 if (c != null) {
                     if (background != null) {
