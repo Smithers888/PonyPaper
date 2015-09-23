@@ -4,10 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.NumberPicker;
 
 /**
@@ -16,12 +13,6 @@ import android.widget.NumberPicker;
 public class NumberPickerPreference extends DialogPreference {
     
     private static final String XMLNS_CUSTOM = "http://cpjsmith.uk/ponypaper/custom";
-    
-    // allowed range
-    private static final int DEFAULT_MAX_VALUE = 10;
-    private static final int DEFAULT_MIN_VALUE = 1;
-    // enable or disable the 'circular behavior'
-    private static final boolean DEFAULT_WRAP_SELECTOR_WHEEL = true;
     
     private NumberPicker picker;
     private int value;
@@ -32,36 +23,25 @@ public class NumberPickerPreference extends DialogPreference {
     
     public NumberPickerPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
-        maxValue = attrs.getAttributeIntValue(XMLNS_CUSTOM, "maxValue", DEFAULT_MAX_VALUE);
-        minValue = attrs.getAttributeIntValue(XMLNS_CUSTOM, "minValue", DEFAULT_MIN_VALUE);
-        wrapSelectorWheel = attrs.getAttributeBooleanValue(XMLNS_CUSTOM, "wrap", DEFAULT_WRAP_SELECTOR_WHEEL);
+        commonInit(attrs);
     }
     
     public NumberPickerPreference(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        maxValue = attrs.getAttributeIntValue(XMLNS_CUSTOM, "maxValue", DEFAULT_MAX_VALUE);
-        minValue = attrs.getAttributeIntValue(XMLNS_CUSTOM, "minValue", DEFAULT_MIN_VALUE);
-        wrapSelectorWheel = attrs.getAttributeBooleanValue(XMLNS_CUSTOM, "wrap", DEFAULT_WRAP_SELECTOR_WHEEL);
+        commonInit(attrs);
     }
     
-    @Override
-    protected View onCreateDialogView() {
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-                                                                             ViewGroup.LayoutParams.WRAP_CONTENT);
-        layoutParams.gravity = Gravity.CENTER;
-        
-        picker = new NumberPicker(getContext());
-        picker.setLayoutParams(layoutParams);
-        
-        FrameLayout dialogView = new FrameLayout(getContext());
-        dialogView.addView(picker);
-        
-        return dialogView;
+    private void commonInit(AttributeSet attrs) {
+        minValue = attrs.getAttributeIntValue(XMLNS_CUSTOM, "minValue", 1);
+        maxValue = attrs.getAttributeIntValue(XMLNS_CUSTOM, "maxValue", 10);
+        wrapSelectorWheel = attrs.getAttributeBooleanValue(XMLNS_CUSTOM, "wrap", true);
+        setDialogLayoutResource(R.layout.number_picker_dialog);
     }
     
     @Override
     protected void onBindDialogView(View view) {
         super.onBindDialogView(view);
+        picker = (NumberPicker)view.findViewById(R.id.number_picker);
         picker.setMinValue(minValue);
         picker.setMaxValue(maxValue);
         picker.setWrapSelectorWheel(wrapSelectorWheel);
@@ -85,7 +65,7 @@ public class NumberPickerPreference extends DialogPreference {
     
     @Override
     protected void onSetInitialValue(boolean restorePersistedValue, Object defaultValue) {
-        setValue(restorePersistedValue ? getPersistedInt(minValue) : (Integer) defaultValue);
+        setValue(restorePersistedValue ? getPersistedInt(minValue) : (Integer)defaultValue);
     }
     
     private void setValue(int newValue) {
