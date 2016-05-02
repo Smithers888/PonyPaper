@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <integer-array name="bigmac_stand_l">
-        <item>400</item>
+        <item>120</item>
         <item>5</item>
         <item>5</item>
+        <item>10</item>
         <item>5</item>
         <item>5</item>
         <item>10</item>
@@ -11,13 +12,16 @@
         <item>500</item>
         <item>5</item>
         <item>5</item>
+        <item>10</item>
         <item>5</item>
         <item>5</item>
+        <item>330</item>
     </integer-array>
     <integer-array name="bigmac_stand_r">
-        <item>400</item>
+        <item>120</item>
         <item>5</item>
         <item>5</item>
+        <item>10</item>
         <item>5</item>
         <item>5</item>
         <item>10</item>
@@ -25,8 +29,10 @@
         <item>500</item>
         <item>5</item>
         <item>5</item>
+        <item>10</item>
         <item>5</item>
         <item>5</item>
+        <item>330</item>
     </integer-array>
     <array name="bigmac_stand">
         <item>@drawable/bigmac_stand_l</item>
