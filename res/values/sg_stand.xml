@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="sg_stand_l">
+        <item>150</item>
+        <item>4</item>
+        <item>4</item>
+        <item>8</item>
+        <item>4</item>
+        <item>10</item>
+        <item>10</item>
+        <item>320</item>
+        <item>4</item>
+        <item>4</item>
+        <item>8</item>
+        <item>4</item>
+        <item>350</item>
+    </integer-array>
+    <integer-array name="sg_stand_r">
+        <item>150</item>
+        <item>4</item>
+        <item>4</item>
+        <item>8</item>
+        <item>4</item>
+        <item>10</item>
+        <item>10</item>
+        <item>320</item>
+        <item>4</item>
+        <item>4</item>
+        <item>8</item>
+        <item>4</item>
+        <item>350</item>
+    </integer-array>
+    <array name="sg_stand">
+        <item>@drawable/sg_stand_l</item>
+        <item>@array/sg_stand_l</item>
+        <item>@drawable/sg_stand_r</item>
+        <item>@array/sg_stand_r</item>
+    </array>
+</resources>

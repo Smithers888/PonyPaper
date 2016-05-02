@@ -64,6 +64,7 @@ public class AllPonies {
         if (prefs.getBoolean("pref_soarin", true)) result.add(makeSoarin(res));
         if (prefs.getBoolean("pref_spike", true)) result.add(makeSpike(res));
         if (prefs.getBoolean("pref_spitfire", true)) result.add(makeSpitfire(res));
+        if (prefs.getBoolean("pref_sg", true)) result.add(makeStarlightGlimmer(res));
         if (prefs.getBoolean("pref_ss", true)) result.add(makeSunsetShimmer(res));
         if (prefs.getBoolean("pref_sb", true)) result.add(makeSweetieBelle(res));
         if (prefs.getBoolean("pref_sd", true)) result.add(makeSweetieDrops(res));
@@ -418,6 +419,10 @@ public class AllPonies {
     
     private static Pony makeSpitfire(Resources res) {
         return makeDefaultFlyer(res, R.array.spitfire_stand, R.array.spitfire_trot, R.array.spitfire_fly);
+    }
+    
+    private static Pony makeStarlightGlimmer(Resources res) {
+        return makeDefaultPony(res, R.array.sg_stand, R.array.sg_trot);
     }
     
     private static Pony makeSunsetShimmer(Resources res) {

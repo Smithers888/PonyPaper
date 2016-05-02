@@ -116,6 +116,9 @@
         <CheckBoxPreference android:key="pref_spitfire"
                             android:title="Spitfire"
                             android:defaultValue="true" />
+        <CheckBoxPreference android:key="pref_sg"
+                            android:title="Starlight Glimmer"
+                            android:defaultValue="true" />
         <CheckBoxPreference android:key="pref_ss"
                             android:title="Sunset Shimmer"
                             android:defaultValue="true" />
