@@ -3,7 +3,7 @@ A live wallpaper for Android using pixel-art sprites of characters from My Littl
 
 Basically, it's a bit like [Desktop Ponies](https://github.com/RoosterDragon/Desktop-Ponies), but for Android phones and tablets, instead of PC (and it has a lot fewer features and doesn't come with as many ponies).
 
-<img src='screenshots/screen1.png' width='180'> <img src='screenshots/drag.png' width='180'> <img src='screenshots/preferences.png' width='180'> <img src='screenshots/screen2.png' width='180'> <img src='screenshots/background.png' width='180'>
+<img src='screenshots/screen1.png' width='180'> <img src='screenshots/screen2.png' width='180'> <img src='screenshots/drag.png' width='180'> <img src='screenshots/screen3.png' width='180'> <img src='screenshots/preferences.png' width='180'>
 
 ## Installation
 This wallpaper should be compatible with any device running Android 3.0 (Honeycomb) or higher.
