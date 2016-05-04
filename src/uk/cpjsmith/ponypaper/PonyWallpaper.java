@@ -21,6 +21,7 @@ public class PonyWallpaper extends WallpaperService {
         private Ponies ponies = null;
         private Bitmap background = null;
         private float xOffset = 0.5f;
+        private float yOffset = 0.5f;
         private boolean drunkMode = false;
         private Paint paint = null;
         private int backgroundColour = 0;
@@ -63,6 +64,7 @@ public class PonyWallpaper extends WallpaperService {
         @Override
         public void onOffsetsChanged(float xOffset, float yOffset, float xOffsetStep, float yOffsetStep, int xPixelOffset, int yPixelOffset) {
             this.xOffset = xOffset;
+            this.yOffset = yOffset;
         }
         
         @Override
@@ -128,11 +130,12 @@ public class PonyWallpaper extends WallpaperService {
                     if (background != null) {
                         Rect srcRect = new Rect(0, 0, background.getWidth(), background.getHeight());
                         Rect cb = c.getClipBounds();
-                        float scale = (float)cb.height() / (float)srcRect.height();
+                        float scale = Math.max((float)cb.height() / (float)srcRect.height(),
+                                               (float)cb.width() / (float)srcRect.width());
                         RectF dstRect = new RectF((cb.width() - srcRect.width() * scale) * xOffset,
-                                                  (cb.height() - srcRect.height() * scale) * 0.5f,
+                                                  (cb.height() - srcRect.height() * scale) * yOffset,
                                                   (cb.width() - srcRect.width() * scale) * xOffset + srcRect.width() * scale,
-                                                  (cb.height() - srcRect.height() * scale) * 0.5f + srcRect.height() * scale);
+                                                  (cb.height() - srcRect.height() * scale) * yOffset + srcRect.height() * scale);
                         c.drawBitmap(background, srcRect, dstRect, paint);
                     } else {
                         c.drawColor(backgroundColour);
