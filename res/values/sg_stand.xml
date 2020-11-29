@@ -3,30 +3,30 @@
     <integer-array name="sg_stand_l">
         <item>150</item>
         <item>4</item>
-        <item>4</item>
         <item>8</item>
+        <item>4</item>
         <item>4</item>
         <item>10</item>
         <item>10</item>
         <item>320</item>
         <item>4</item>
-        <item>4</item>
         <item>8</item>
+        <item>4</item>
         <item>4</item>
         <item>350</item>
     </integer-array>
     <integer-array name="sg_stand_r">
         <item>150</item>
         <item>4</item>
-        <item>4</item>
         <item>8</item>
+        <item>4</item>
         <item>4</item>
         <item>10</item>
         <item>10</item>
         <item>320</item>
         <item>4</item>
-        <item>4</item>
         <item>8</item>
+        <item>4</item>
         <item>4</item>
         <item>350</item>
     </integer-array>

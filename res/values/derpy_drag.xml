@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <integer-array name="derpy_drag_l">
-        <item>4</item>
+        <item>10</item>
     </integer-array>
     <integer-array name="derpy_drag_r">
-        <item>4</item>
+        <item>10</item>
     </integer-array>
     <array name="derpy_drag">
         <item>@drawable/derpy_drag_l</item>
