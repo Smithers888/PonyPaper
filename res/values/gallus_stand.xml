@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="gallus_stand_l">
+        <item>100</item>
+        <item>4</item>
+        <item>4</item>
+        <item>8</item>
+        <item>4</item>
+        <item>4</item>
+        <item>6</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>400</item>
+        <item>4</item>
+        <item>4</item>
+        <item>8</item>
+        <item>4</item>
+        <item>4</item>
+        <item>400</item>
+    </integer-array>
+    <integer-array name="gallus_stand_r">
+        <item>100</item>
+        <item>4</item>
+        <item>4</item>
+        <item>8</item>
+        <item>4</item>
+        <item>4</item>
+        <item>6</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>400</item>
+        <item>4</item>
+        <item>4</item>
+        <item>8</item>
+        <item>4</item>
+        <item>4</item>
+        <item>400</item>
+    </integer-array>
+    <array name="gallus_stand">
+        <item>@drawable/gallus_stand_l</item>
+        <item>@array/gallus_stand_l</item>
+        <item>@drawable/gallus_stand_r</item>
+        <item>@array/gallus_stand_r</item>
+    </array>
+</resources>

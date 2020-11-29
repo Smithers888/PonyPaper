@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="thorax_stand_l">
+        <item>100</item>
+        <item>4</item>
+        <item>4</item>
+        <item>10</item>
+        <item>4</item>
+        <item>4</item>
+        <item>10</item>
+        <item>10</item>
+        <item>350</item>
+        <item>4</item>
+        <item>4</item>
+        <item>10</item>
+        <item>4</item>
+        <item>4</item>
+        <item>350</item>
+    </integer-array>
+    <integer-array name="thorax_stand_r">
+        <item>100</item>
+        <item>4</item>
+        <item>4</item>
+        <item>10</item>
+        <item>4</item>
+        <item>4</item>
+        <item>10</item>
+        <item>10</item>
+        <item>350</item>
+        <item>4</item>
+        <item>4</item>
+        <item>10</item>
+        <item>4</item>
+        <item>4</item>
+        <item>350</item>
+    </integer-array>
+    <array name="thorax_stand">
+        <item>@drawable/thorax_stand_l</item>
+        <item>@array/thorax_stand_l</item>
+        <item>@drawable/thorax_stand_r</item>
+        <item>@array/thorax_stand_r</item>
+    </array>
+</resources>

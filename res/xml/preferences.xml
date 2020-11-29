@@ -71,6 +71,9 @@
     </PreferenceCategory>
     <PreferenceCategory android:key="pref_royalty"
                         android:title="Royalty">
+        <CheckBoxPreference android:key="pref_ember"
+                            android:title="Ember"
+                            android:defaultValue="true" />
         <CheckBoxPreference android:key="pref_cadance"
                             android:title="Princess Cadance"
                             android:defaultValue="true" />
@@ -82,6 +85,30 @@
                             android:defaultValue="true" />
         <CheckBoxPreference android:key="pref_sa"
                             android:title="Shining Armor"
+                            android:defaultValue="true" />
+        <CheckBoxPreference android:key="pref_thorax"
+                            android:title="Thorax"
+                            android:defaultValue="true" />
+    </PreferenceCategory>
+    <PreferenceCategory android:key="pref_young6"
+                        android:title="Young 6">
+        <CheckBoxPreference android:key="pref_gallus"
+                            android:title="Gallus"
+                            android:defaultValue="true" />
+        <CheckBoxPreference android:key="pref_ocellus"
+                            android:title="Ocellus"
+                            android:defaultValue="true" />
+        <CheckBoxPreference android:key="pref_sandbar"
+                            android:title="Sandbar"
+                            android:defaultValue="true" />
+        <CheckBoxPreference android:key="pref_silverstream"
+                            android:title="Silverstream"
+                            android:defaultValue="true" />
+        <CheckBoxPreference android:key="pref_smolder"
+                            android:title="Smolder"
+                            android:defaultValue="true" />
+        <CheckBoxPreference android:key="pref_yona"
+                            android:title="Yona"
                             android:defaultValue="true" />
     </PreferenceCategory>
     <PreferenceCategory android:key="pref_other"
@@ -124,6 +151,9 @@
                             android:defaultValue="true" />
         <CheckBoxPreference android:key="pref_sd"
                             android:title="Sweetie Drops"
+                            android:defaultValue="true" />
+        <CheckBoxPreference android:key="pref_trixie"
+                            android:title="Trixie"
                             android:defaultValue="true" />
         <CheckBoxPreference android:key="pref_vinyl"
                             android:title="Vinyl Scratch"

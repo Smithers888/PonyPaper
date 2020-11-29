@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="gallus_fly_l">
+        <item>6</item>
+        <item>6</item>
+        <item>6</item>
+        <item>6</item>
+        <item>6</item>
+        <item>6</item>
+        <item>6</item>
+        <item>6</item>
+        <item>6</item>
+        <item>6</item>
+        <item>6</item>
+        <item>6</item>
+    </integer-array>
+    <integer-array name="gallus_fly_r">
+        <item>6</item>
+        <item>6</item>
+        <item>6</item>
+        <item>6</item>
+        <item>6</item>
+        <item>6</item>
+        <item>6</item>
+        <item>6</item>
+        <item>6</item>
+        <item>6</item>
+        <item>6</item>
+        <item>6</item>
+    </integer-array>
+    <array name="gallus_fly">
+        <item>@drawable/gallus_fly_l</item>
+        <item>@array/gallus_fly_l</item>
+        <item>@drawable/gallus_fly_r</item>
+        <item>@array/gallus_fly_r</item>
+    </array>
+</resources>

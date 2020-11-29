@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="ember_stand_l">
+        <item>110</item>
+        <item>4</item>
+        <item>10</item>
+        <item>4</item>
+        <item>4</item>
+        <item>380</item>
+        <item>4</item>
+        <item>10</item>
+        <item>4</item>
+        <item>4</item>
+        <item>8</item>
+        <item>8</item>
+        <item>300</item>
+        <item>4</item>
+        <item>10</item>
+        <item>4</item>
+        <item>4</item>
+        <item>400</item>
+        <item>6</item>
+        <item>10</item>
+        <item>4</item>
+        <item>4</item>
+        <item>380</item>
+    </integer-array>
+    <integer-array name="ember_stand_r">
+        <item>110</item>
+        <item>4</item>
+        <item>10</item>
+        <item>4</item>
+        <item>4</item>
+        <item>380</item>
+        <item>4</item>
+        <item>10</item>
+        <item>4</item>
+        <item>4</item>
+        <item>8</item>
+        <item>8</item>
+        <item>300</item>
+        <item>4</item>
+        <item>10</item>
+        <item>4</item>
+        <item>4</item>
+        <item>400</item>
+        <item>6</item>
+        <item>10</item>
+        <item>4</item>
+        <item>4</item>
+        <item>380</item>
+    </integer-array>
+    <array name="ember_stand">
+        <item>@drawable/ember_stand_l</item>
+        <item>@array/ember_stand_l</item>
+        <item>@drawable/ember_stand_r</item>
+        <item>@array/ember_stand_r</item>
+    </array>
+</resources>

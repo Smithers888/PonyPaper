@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="ocellus_stand_l">
+        <item>100</item>
+        <item>4</item>
+        <item>4</item>
+        <item>10</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>10</item>
+        <item>10</item>
+        <item>400</item>
+        <item>4</item>
+        <item>4</item>
+        <item>10</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>400</item>
+    </integer-array>
+    <integer-array name="ocellus_stand_r">
+        <item>100</item>
+        <item>4</item>
+        <item>4</item>
+        <item>10</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>10</item>
+        <item>10</item>
+        <item>400</item>
+        <item>4</item>
+        <item>4</item>
+        <item>10</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>400</item>
+    </integer-array>
+    <array name="ocellus_stand">
+        <item>@drawable/ocellus_stand_l</item>
+        <item>@array/ocellus_stand_l</item>
+        <item>@drawable/ocellus_stand_r</item>
+        <item>@array/ocellus_stand_r</item>
+    </array>
+</resources>

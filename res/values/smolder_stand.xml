@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="smolder_stand_l">
+        <item>100</item>
+        <item>4</item>
+        <item>4</item>
+        <item>10</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>400</item>
+        <item>4</item>
+        <item>4</item>
+        <item>10</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>400</item>
+    </integer-array>
+    <integer-array name="smolder_stand_r">
+        <item>100</item>
+        <item>4</item>
+        <item>4</item>
+        <item>10</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>400</item>
+        <item>4</item>
+        <item>4</item>
+        <item>10</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>400</item>
+    </integer-array>
+    <array name="smolder_stand">
+        <item>@drawable/smolder_stand_l</item>
+        <item>@array/smolder_stand_l</item>
+        <item>@drawable/smolder_stand_r</item>
+        <item>@array/smolder_stand_r</item>
+    </array>
+</resources>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="silverstream_stand_l">
+        <item>100</item>
+        <item>4</item>
+        <item>4</item>
+        <item>8</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>10</item>
+        <item>10</item>
+        <item>380</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>100</item>
+        <item>10</item>
+        <item>10</item>
+        <item>300</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>380</item>
+    </integer-array>
+    <integer-array name="silverstream_stand_r">
+        <item>100</item>
+        <item>4</item>
+        <item>4</item>
+        <item>8</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>10</item>
+        <item>10</item>
+        <item>380</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>100</item>
+        <item>10</item>
+        <item>10</item>
+        <item>300</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>380</item>
+    </integer-array>
+    <array name="silverstream_stand">
+        <item>@drawable/silverstream_stand_l</item>
+        <item>@array/silverstream_stand_l</item>
+        <item>@drawable/silverstream_stand_r</item>
+        <item>@array/silverstream_stand_r</item>
+    </array>
+</resources>

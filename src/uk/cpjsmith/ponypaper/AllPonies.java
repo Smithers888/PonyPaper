@@ -48,10 +48,13 @@ public class AllPonies {
         if (prefs.getBoolean("pref_bigmac", true)) result.add(makeBigMcIntosh(res));
         if (prefs.getBoolean("pref_derpy", true)) result.add(makeDerpyHooves(res));
         if (prefs.getBoolean("pref_doctor", true)) result.add(makeDoctorHooves(res));
+        if (prefs.getBoolean("pref_ember", true)) result.add(makeEmber(res));
         if (prefs.getBoolean("pref_fs", true)) result.add(makeFluttershy(res));
+        if (prefs.getBoolean("pref_gallus", true)) result.add(makeGallus(res));
         if (prefs.getBoolean("pref_gilda", true)) result.add(makeGilda(res));
         if (prefs.getBoolean("pref_lyra", true)) result.add(makeLyraHeartstrings(res));
         if (prefs.getBoolean("pref_minuette", true)) result.add(makeMinuette(res));
+        if (prefs.getBoolean("pref_ocellus", true)) result.add(makeOcellus(res));
         if (prefs.getBoolean("pref_octavia", true)) result.add(makeOctavia(res));
         if (prefs.getBoolean("pref_pp", true)) result.add(makePinkiePie(res));
         if (prefs.getBoolean("pref_cadance", true)) result.add(makePrincessCadance(res));
@@ -59,8 +62,11 @@ public class AllPonies {
         if (prefs.getBoolean("pref_luna", true)) result.add(makePrincessLuna(res));
         if (prefs.getBoolean("pref_rd", true)) result.add(makeRainbowDash(res));
         if (prefs.getBoolean("pref_rarity", true)) result.add(makeRarity(res));
+        if (prefs.getBoolean("pref_sandbar", true)) result.add(makeSandbar(res));
         if (prefs.getBoolean("pref_scootaloo", true)) result.add(makeScootaloo(res));
         if (prefs.getBoolean("pref_sa", true)) result.add(makeShiningArmor(res));
+        if (prefs.getBoolean("pref_silverstream", true)) result.add(makeSilverstream(res));
+        if (prefs.getBoolean("pref_smolder", true)) result.add(makeSmolder(res));
         if (prefs.getBoolean("pref_soarin", true)) result.add(makeSoarin(res));
         if (prefs.getBoolean("pref_spike", true)) result.add(makeSpike(res));
         if (prefs.getBoolean("pref_spitfire", true)) result.add(makeSpitfire(res));
@@ -68,8 +74,11 @@ public class AllPonies {
         if (prefs.getBoolean("pref_ss", true)) result.add(makeSunsetShimmer(res));
         if (prefs.getBoolean("pref_sb", true)) result.add(makeSweetieBelle(res));
         if (prefs.getBoolean("pref_sd", true)) result.add(makeSweetieDrops(res));
+        if (prefs.getBoolean("pref_thorax", true)) result.add(makeThorax(res));
+        if (prefs.getBoolean("pref_trixie", true)) result.add(makeTrixie(res));
         if (prefs.getBoolean("pref_ts", true)) result.add(makeTwilightSparkle(res));
         if (prefs.getBoolean("pref_vinyl", true)) result.add(makeVinylScratch(res));
+        if (prefs.getBoolean("pref_yona", true)) result.add(makeYona(res));
         if (prefs.getBoolean("pref_zecora", true)) result.add(makeZecora(res));
         loadCustomPonies(context, prefs, result);
         
@@ -237,6 +246,27 @@ public class AllPonies {
         return makeDefaultPony(res, R.array.doctor_stand, R.array.doctor_trot);
     }
     
+    private static Pony makeEmber(Resources res) {
+        PonyAction stand = new PonyAction(res, R.array.ember_stand);
+        PonyAction fly = new PonyAction(res, R.array.ember_fly);
+        
+        PonyAction[] all = {stand, fly};
+        PonyAction[] justStand = {stand};
+        PonyAction[] justFly = {fly};
+        PonyAction[] waitStates = {stand, fly};
+        
+        stand.setNextWaiting(justStand);
+        fly.setNextWaiting(waitStates);
+        
+        stand.setNextMoving(justFly);
+        fly.setNextMoving(justFly);
+        
+        stand.setNextDrag(justFly);
+        fly.setNextDrag(justFly);
+        
+        return new Pony(all, justFly);
+    }
+    
     private static Pony makeFluttershy(Resources res) {
         PonyAction stand = new PonyAction(res, R.array.fs_stand);
         PonyAction trot = new PonyAction(res, R.array.fs_trot);
@@ -266,6 +296,10 @@ public class AllPonies {
         drag.setNextDrag(justDrag);
         
         return new Pony(all, moveStates);
+    }
+    
+    private static Pony makeGallus(Resources res) {
+        return makeDefaultFlyer(res, R.array.gallus_stand, R.array.gallus_trot, R.array.gallus_fly);
     }
     
     private static Pony makeGilda(Resources res) {
@@ -298,6 +332,10 @@ public class AllPonies {
     
     private static Pony makeMinuette(Resources res) {
         return makeDefaultPony(res, R.array.minuette_stand, R.array.minuette_trot);
+    }
+    
+    private static Pony makeOcellus(Resources res) {
+        return makeDefaultPony(res, R.array.ocellus_stand, R.array.ocellus_trot);
     }
     
     private static Pony makeOctavia(Resources res) {
@@ -401,12 +439,24 @@ public class AllPonies {
         return new Pony(all, justTrot);
     }
     
+    private static Pony makeSandbar(Resources res) {
+        return makeDefaultPony(res, R.array.sandbar_stand, R.array.sandbar_trot);
+    }
+    
     private static Pony makeScootaloo(Resources res) {
         return makeDefaultPony(res, R.array.scootaloo_stand, R.array.scootaloo_trot);
     }
     
     private static Pony makeShiningArmor(Resources res) {
         return makeDefaultPony(res, R.array.sa_stand, R.array.sa_walk);
+    }
+    
+    private static Pony makeSilverstream(Resources res) {
+        return makeDefaultFlyer(res, R.array.silverstream_stand, R.array.silverstream_trot, R.array.silverstream_fly);
+    }
+    
+    private static Pony makeSmolder(Resources res) {
+        return makeDefaultFlyer(res, R.array.smolder_stand, R.array.smolder_walk, R.array.smolder_fly);
     }
     
     private static Pony makeSoarin(Resources res) {
@@ -460,6 +510,14 @@ public class AllPonies {
     
     private static Pony makeSweetieDrops(Resources res) {
         return makeDefaultPony(res, R.array.sd_stand, R.array.sd_trot);
+    }
+    
+    private static Pony makeThorax(Resources res) {
+        return makeDefaultFlyer(res, R.array.thorax_stand, R.array.thorax_trot, R.array.thorax_fly);
+    }
+    
+    private static Pony makeTrixie(Resources res) {
+        return makeDefaultPony(res, R.array.trixie_stand, R.array.trixie_trot);
     }
     
     private static Pony makeTwilightSparkle(Resources res) {
@@ -546,6 +604,10 @@ public class AllPonies {
         moonwalk.setNextDrag(justTrot);
         
         return new Pony(all, moveStates);
+    }
+    
+    private static Pony makeYona(Resources res) {
+        return makeDefaultPony(res, R.array.yona_stand, R.array.yona_trot);
     }
     
     private static Pony makeZecora(Resources res) {
